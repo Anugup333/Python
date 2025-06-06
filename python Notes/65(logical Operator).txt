@@ -1,0 +1,147 @@
+			======================================================
+					4. Logical Operators (Comparision Operators)
+			======================================================
+=>The purpose of Logical Operators is that "To combine Two Or More Relational Expressions".
+=>If Two Or More Relational Expressions connected with Logical Operators then It is called Logical Expression.
+=>The Result of Logical Expression  can be either True OR False.
+=>The Logical Expression is also called Compound Test Condtion and whose Result  can be either True OR False.
+=>In Python Programming, we have 3 Types of Logical Operators. They are
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+SLNO		SYMBOL				MEANING
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+1.			and					Physical ANDing
+2.			or					Physical ORing
+3.			not					--------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+1. 'and' Operator
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+=>Syntax:  RelExpr1  and  RelExpr2
+=>The functionality of 'and' Operator is shown in the following Truth table
+			**********************************************************************
+				RelExpr1     RelExpr2    RelExpr1 and  RelExpr2
+			**********************************************************************
+				True			False			False
+				False		True				False
+				False		False			False
+				True			True				True
+			**********************************************************************
+-----------------------
+Example-1
+-----------------------
+>>> True and False-------------------False
+>>> False and True-------------------False
+>>> False and False------------------False
+>>> True and True---------------------True
+---------------------------
+Example-2
+---------------------------
+>>> 10>20 and 30>20-----------False-----Short circuit Evaluation
+>>> 10>200 and 40>20 and 20>10----False---Short circuit Evaluation
+>>> 10>2 and 30>20 and 40>2--------True------Full Length  Evaluation
+>>> 10>2 and 3>20 and 40>2---------False-----Short circuit  Evaluation
+***********************************************************************
+Short circuit evalation in the case of 'and' Operator
+***********************************************************************
+=>If Multiple Relational Expression are connected with 'and' Operator and If the Initial relational expression Result is False then the PVM evaulates the entire Result of Logical Expression is False. This type of Evaluation is called Short Circuit Evaluation.
+***********************************************************************
+---------------------------
+Example-3
+---------------------------
+>>> 100 and 200----------------------------200
+>>> -120 and -300-------------------------- -300
+>>> 100 and 0------------------------------- 0
+>>> 120-120 and 240---------------------- 0
+>>> "Python" and "C"----------------------'C'
+>>> "True" and "False"--------------------'False'
+>>> "#" and "$"------------------------------'$'
+>>> "" and "KVR"---------------------------''
+
+
+
+2. 'or' Operator	
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+=>Syntax:  RelExpr1  or  RelExpr2
+=>The functionality of 'or' Operator is shown in the following Truth table
+			**********************************************************************
+				RelExpr1     RelExpr2    RelExpr1 or  RelExpr2
+			**********************************************************************
+				True			False		True	
+				False		True			True	
+				False		False		False	
+				True			True			True	
+			**********************************************************************
+-------------------------
+Example-1
+-------------------------
+>>> True or False-------------------True
+>>> False or True-------------------True
+>>> False or False------------------False
+>>> True or True---------------------True
+------------------------------
+Example-2
+-------------------------------
+>>> 10>3 or 40>60------------------------True-------Short circuit Evaluation
+>>> 10>3 or 40>60 or 60>40-----------True-------Short circuit Evaluation
+>>> 10>20 or 40>20 or 50>62----------True-------Short circuit Evaluation
+>>> 10>20 or 40>50 or 60>70----------False------Full Length Evaluation
+***********************************************************************
+Short circuit evalation in the case of 'or' Operator
+***********************************************************************
+=>If Multiple Relational Expression are connected with 'or' Operator and If the Initial relational expression Result is True then the PVM evaulates the entire Result of Logical Expression is True. This type of Evaluation is called Short Circuit Evaluation.
+***********************************************************************
+Example-3------Special Points
+***********************************************************************
+>>> 10 or 20--------------------------------10
+>>> 0 or 20----------------------------------20
+>>> 100 or -200----------------------------100
+>>> "Python" or "java"------------------'Python'
+>>> 10 or "python" or 45-----------------10
+>>> 10 or 0 or 23---------------------------10
+>>> "#" or 0----------------------------------'#'
+***********************************************************************
+Example-3------Special Points with 'and'  'or'
+***********************************************************************
+>>> 10 or 20 and 30-------------------------10
+>>> 10 and 20 or 50 and 40---------------20
+>>> "Python" or "C" and "Java" or 123------'Python'
+>>> 0 or "C" and "Java" or 123----------------'Java'
+>>> 0 or "C" and False or 123-----------------123
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+3. 'not' Operator
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+=>Syntax-1: not RelExpr1
+=>Syntax-2: not (RelExpr1 or RelExpr2)
+=>Syntax-3: not (RelExpr1 and RelExpr2)
+=>The functionality of 'not' Operator is shown in the following Truth table
+			**********************************************************************
+				RelExpr1     not RelExpr1  
+			**********************************************************************
+				True			False
+				False		True
+			**********************************************************************
+------------------------
+Example--1
+------------------------
+>>> not True-------------False
+>>> not False-----------True
+-------------------------
+Example-2
+-------------------------
+>>> not 10>2------------------------False
+>>> not 20>30------------------------True
+>>> 10>2 or 20>3--------------------True
+>>> not(10>2 or 20>3)--------------False
+>>> 10>20 and 30>40---------------False
+>>> not(10>20 and 30>40)---------True
+-------------------------
+Example-3--Special Points
+-------------------------
+>>> not 100---------------------------False
+>>> not -200-------------------------False
+>>> not 0-----------------------------True
+>>> not 12-12------------------------True
+>>> not "Python"--------------------False
+>>> not ""-----------------------------True
+>>> not "12-12"---------------------False
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------

@@ -1,0 +1,222 @@
+#Program for Accepting the Digit and Display Its name
+#DigitsEx1.py
+d={0:"ZERO",1:"ONE",2:"TWO",3:"THREE",4:"FOUR",5:"FIVE",6:"SIX",7:"SEVEN",8:"EIGHT",9:"NINE"}
+dig=int(input("Enter the Digit:"))
+res= d.get(dig) if d.get(dig)!=None else "+VE Number" if dig>9 else "-VE Number" if dig<0 and dig not in [-1,-2,-3,-4,-5,-6,-7,-8,-9] else "-VE Digit"
+print("{} is {}".format(dig,res))
+
+
+
+#Program for Accepting the Digit and Display Its name
+#DigitsEx2.py
+d={0:"ZERO",1:"ONE",2:"TWO",3:"THREE",4:"FOUR",5:"FIVE",6:"SIX",7:"SEVEN",8:"EIGHT",9:"NINE"}
+dig=int(input("Enter the Digit:"))
+print("{} is {}".format(dig,d.get(dig) if d.get(dig)!=None else "+VE Number" if dig>9 else "-VE Number" if dig<0 and dig not in [-1,-2,-3,-4,-5,-6,-7,-8,-9] else "-VE Digit"))
+
+
+
+#EmpPaySlip.py
+print("-"*50)
+empno=int(input("Enter Employee Number:"))
+empname=input("Enter Employee Name:")
+empbasicsal=float(input("Enter Employee Basic Salary:"))
+print("-"*50)
+if(empbasicsal<=0):
+    print("Invalid Salary --try again")
+else:
+    if(empbasicsal>=10000):
+        da = (20/100)*empbasicsal
+        ta = (10/100)*empbasicsal
+        hra = (8/100)*empbasicsal
+        ma = (2/100)*empbasicsal
+        lic=(2/100)*empbasicsal
+        gpf=(1.5/100)*empbasicsal
+    elif(empbasicsal<10000):
+        da = (10 / 100) * empbasicsal
+        ta = (7.5/ 100) * empbasicsal
+        hra = (4.5 / 100) * empbasicsal
+        ma = (1.5 / 100) * empbasicsal
+        lic = (1.5 / 100) * empbasicsal
+        gpf = (1.5 / 100) * empbasicsal
+    NetSal = (empbasicsal + da + ta + hra + ma) - (lic + gpf)
+    #Display pay slip
+    print("*"*50)
+    print("\tEMPLOYEE PAY SLIP")
+    print("*" * 50)
+    print("\tEmployee Number:{}".format(empno))
+    print("\tEmployee Name:{}".format(empname))
+    print("\tEmployee Basic Salary:{}".format(empbasicsal))
+    print("\tDA:{}".format(da))
+    print("\tTA:{}".format(ta))
+    print("\tHRA:{}".format(hra))
+    print("\tMA:{}".format(ma))
+    print("Deduction")
+    print("\tLIC:{}".format(lic))
+    print("\tGPF:{}".format(gpf))
+    print("*"*50)
+    print("\tNet Salary={}".format(NetSal))
+    print("*" * 50)
+
+
+
+#Program for Deciding weather the Given Number +Ve or -Ve or Zero
+#IfElIFElseStmtEx1.py
+n=float(input("Enter a Number:")) # n--- -23
+if(n>0):
+    print("{} is +VE Value".format(n))
+elif(n<0):
+    print("{} is -VE Value".format(n))
+elif(n==0):
+    print("{} is ZERO".format(n))
+else: # Optional to write
+    print("I am from else part")
+print("Program execution Compelted")
+
+
+
+#Program for Accepting the Digit and Display Its name
+#IfElIFElseStmtEx2.py
+d=int(input('Enter a Digit:')) # d=0 1 2 3 4 5 6 7 8 9
+if(d==0):
+    print("{} is ZERO".format(d))
+elif(d==1):
+    print("{} is ONE".format(d))
+elif(d==2):
+    print("{} is TWO".format(d))
+elif(d==3):
+    print("{} is THREE".format(d))
+elif(d==4):
+    print("{} is FOUR".format(d))
+elif(d==5):
+    print("{} is FIVE".format(d))
+elif(d==6):
+    print("{} is SIX".format(d))
+elif(d==7):
+    print("{} is SEVEN".format(d))
+elif(d==8):
+    print("{} is EIGHT".format(d))
+elif(d==9):
+    print("{} is NINE".format(d))
+elif(d>9):
+    print("{} is a Number:".format(d))
+elif(d<0) and d not in [-1,-2,-3,-4,-5,-6,-7,-8,-9]:
+    print("{} is -Ve Number:".format(d))
+elif d in [-1,-2,-3,-4,-5,-6,-7,-8,-9]:
+    print("{} is -VE Digit".format(d))
+print("Program Execution is completed")
+
+
+
+
+#Program for accepting a Numerical +ve value and decide whether It is Even OR Odd
+#IfElIFElseStmtEx3.py
+n=float(input("Enter a Numerical value:"))
+if(n<=0):
+    print("\t{} Invalid Input".format(n))
+elif (n%2==0):
+    print("\t{} is Even Number:".format(n))
+elif(n>0) and (n%2!=0):
+    print("\t{} is Odd Number:".format(n))
+print("Program execution completed")
+
+
+#Program for Deciding weather the Given Value is Palindrome or not
+#IfElseStmtEx1.py
+value=input("Enter a Value:").lower() # LIRIL
+if(value==value[::-1]):
+    print("{} is Palindrome".format(value))
+else:
+    print("{} is Not Palindrome".format(value))
+print("Program Execution Completed")
+
+
+#Program for Deciding weather the Given Number +Ve or -Ve or Zero
+#IfElseStmtEx2.py
+n=float(input("Enter a Number:")) # n--- -23
+if(n>0):
+    print("{} is +VE Value".format(n))
+else:
+    if(n<0):
+        print("{} is -VE Value".format(n))
+    else:
+        print("{} is ZERO".format(n))
+    print("I am in Inner if--else stmt")
+print("I am in outer if--else stmt")
+
+
+#Program for Accepting the Digit and Display Its name
+#IfElseStmtEx3py
+d=int(input('Enter a Digit:')) # d=0 1 2 3 4 5 6 7 8 9
+if(d==0):
+    print("{} is ZERO".format(d))
+else:
+    if(d==1):
+        print("{} is ONE".format(d))
+    else:
+        if (d == 2):
+            print("{} is TWO".format(d))
+        else:
+            if (d == 3):
+                print("{} is THREE".format(d))
+            else:
+                if (d == 4):
+                    print("{} is FOUR".format(d))
+                else:
+                    if (d == 5):
+                        print("{} is FIVE".format(d))
+                    else:
+                        if (d == 6):
+                            print("{} is SIX".format(d))
+                        else:
+                            if (d == 7):
+                                print("{} is SEVEN".format(d))
+                            else:
+                                if (d == 8):
+                                    print("{} is EIGHT".format(d))
+                                else:
+                                    if (d == 9):
+                                        print("{} is NINE".format(d))
+                                    else:
+                                        if (d > 9):
+                                            print("{} is a Number:".format(d))
+                                        else:
+                                            if (d < 0) and d not in [-1, -2, -3, -4, -5, -6, -7, -8, -9]:
+                                                print("{} is -Ve Number:".format(d))
+                                            else:
+                                                print("{} is -VE Digit".format(d))
+print("Program Execution Completed")
+
+
+
+
+
+#Program for Accepting the Digit and Display Its name
+#SimpleInStmtEx4.py
+d=int(input('Enter a Digit:')) # d=0 1 2 3 4 5 6 7 8 9
+if(d==0):
+    print("{} is ZERO".format(d))
+if(d==1):
+    print("{} is ONE".format(d))
+if(d==2):
+    print("{} is TWO".format(d))
+if(d==3):
+    print("{} is THREE".format(d))
+if(d==4):
+    print("{} is FOUR".format(d))
+if(d==5):
+    print("{} is FIVE".format(d))
+if(d==6):
+    print("{} is SIX".format(d))
+if(d==7):
+    print("{} is SEVEN".format(d))
+if(d==8):
+    print("{} is EIGHT".format(d))
+if(d==9):
+    print("{} is NINE".format(d))
+if(d>9):
+    print("{} is a Number:".format(d))
+if(d<0) and d not in [-1,-2,-3,-4,-5,-6,-7,-8,-9]:
+    print("{} is -Ve Number:".format(d))
+if d in [-1,-2,-3,-4,-5,-6,-7,-8,-9]:
+    print("{} is -VE Digit".format(d))
+print("Program Execution is completed")

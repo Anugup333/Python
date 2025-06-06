@@ -1,0 +1,73 @@
+			==================================================
+						File Opening Modes
+			==================================================
+=>The purpose of File Opening Modes is that "To Open a Perticular File with the Specified Mode".
+=>In Otherwords, File Opening Modes makes us to understand In which Mode we are opening the File.
+=>In Python Programming, we have 8 File Opening Modes. They are
+
+			1. r
+			2. w
+			3. a
+			4. r+
+			5. w+
+			6. a+
+			7. x
+			8. x+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+1. r
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+=>This Mode is used for Opening the Specified File Name in Read Mode and we perform Read Operations only
+=>If we don't specify any file opening mode then by default PVM treated  "r" mode as deafult file mode.
+=>If we open any file name in "r" mode and If that file name does not exist in Secondary Memory then we get 
+    FileNotFoundError.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+2. w
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+=>This mode is used for Creating New File and Opens in Write Mode.
+=>If we Choose NEW FILE and the Mode is "w" then PVM Creates New File and Opened in write Mode and we Can 
+    Perform Write Operations Only.
+=>If we Choose EXISTING FILE and the Mode is "w" then PVM Opens Existing File  in write Mode and Existing Data of 
+    Existing File OVERLAPPED with New Data.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+3. a
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+=>This mode is used for Creating New File and Opens in Write Mode.
+=>If we Choose NEW FILE and the Mode is "a" then PVM Creates New File and Opened in write Mode and we Can 
+    Perform Write Operations Only.
+=>If we Choose EXISTING FILE and the Mode is "a" then PVM Opens Existing File  in write Mode and Existing Data of 
+    Existing File APPENDED with New Data.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+4. r+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+=>This Mode is used for Opening the Specified File Name in Read Mode and  First we perform Read Operation  and  
+    Later we can also Perform Write Operation.
+=>If we open any file name in "r+" mode and If that file name does not exist in Secondary Memory then we get 
+    FileNotFoundError.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+5. w+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+=>This mode is used for Creating New File and Opens in Write Mode.
+=>If we Choose NEW FILE and the Mode is "w+" then PVM Creates New File and Opened in write Mode and First we 
+   Can  Perform Write Operation and Later we can perform Read Operation also.
+=>If we Choose EXISTING FILE and the Mode is "w+" then PVM Opens Existing File  in write Mode and Existing Data of 
+    Existing File OVERLAPPED with New Data.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+6. a+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+=>This mode is used for Creating New File and Opens in Write Mode.
+=>If we Choose NEW FILE and the Mode is "a+" then PVM Creates New File and Opened in write Mode and  First we 
+    Can Perform Write Operations  and Later we can perform Read Operations also.
+=>If we Choose EXISTING FILE and the Mode is "a+" then PVM Opens Existing File  in write Mode and Existing Data of 
+    Existing File APPENDED with New Data.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+7. x
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+=>This mode is used for Creating New File  eXclusively in Write Mode Only Once  and We can Perform Write 
+   Operations Only.
+=>If we Open Existing File in "x" Mode then we get FileExistError.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+8. x+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+=>This mode is used for Creating New File  eXclusively in Write Mode Only Once and  First We can Perform Write Operations  and Later we can Perform Read Operations also.
+=>If we Open Existing File in "x+" Mode then we get FileExistError.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------

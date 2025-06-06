@@ -1,0 +1,152 @@
+				========================================================
+							Decorators in Python
+				========================================================
+=>A Decorator is one of the Function which will provide Additional Functionality to the Normal Function.
+=>A Decorator always takes Normal Function as Parameter.
+    -----------------------------------------------
+=>Syntax for Defining Decorator
+    -----------------------------------------------
+			def  Function-Name1(Formal Parameter for Normal Function): # Decorator Def OR Outer Function Def.
+			       def   Function_Name2(): # Inner Function 
+			               --------------------------------
+				       --------------------------------
+				       Block of Statements
+				       provides Addl. Functionality to Normal Function
+				       --------------------------------
+				       --------------------------------
+				       retun result of  Function_Name2
+				return Function_Name2
+
+=>Here Function-Name1 is called Decorator
+=>Here Function-Name2 is called Inner Function.
+=========================================x=================================
+
+
+#Non-DecEx1.py
+def  getval():  # Function Defined by KVR
+	return float(input("Enter a Number:"))
+
+def square():						
+	n=getval()
+	res=n**2
+	print("Square({})={}".format(n,res))
+
+def squareroot():				
+	n=getval()
+	res=n**0.5
+	print("SquareRoot({})={}".format(n,res))
+
+#Main Program
+square()
+squareroot()
+
+#DecEx1.py
+def square(kvr): # Decorator Definition
+	def operations(): # Inner Function 
+		n=kvr()
+		res=n**2
+		return n,res
+	return operations
+
+def  getval():  # Function Defined by KVR
+	return float(input("Enter a Number:"))
+
+#Main Program
+res=square(getval) # Decorator Call
+n,r=res()
+print("square({})={}".format(n,r))
+
+
+#DecEx2.py
+def square(kvr): # Decorator Definition
+	def operations(): # Inner Function 
+		n=kvr()
+		res=n**2
+		return n,res
+	return operations
+
+def  getval():  # Function Defined by KVR
+	return float(input("Enter a Number:"))
+
+#Main Program
+n,r=square(getval)() # Decorator Call cum Inner Function
+print("square({})={}".format(n,r))
+
+
+#DecEx3.py
+def square(kvr): # Decorator Defintion
+	def operation(): # Inner Function
+		n=kvr()
+		return(n,n**2)
+	return operation
+
+@square
+def  getval():  # Function Defined by KVR
+	return float(input("Enter a Number:"))
+
+#Main Program
+n,res=getval() # Normal Function Call
+print("Square({})={}".format(n,res))
+
+
+#DecEx4.py
+def cube(nit):
+	def cubecal():
+		n,sqrval,sqrtval=nit()
+		cbval=n**3
+		return (n,sqrval,sqrtval,cbval)
+	return cubecal
+
+def squareroot(hyd):
+	def cal():
+		n,sqv=hyd()
+		sqrtv=n**0.5
+		return(n,sqv,sqrtv)
+	return cal
+
+def square(kvr): # Decorator Defintion
+	def operation(): # Inner Function
+		n=kvr()
+		return(n,n**2)
+	return operation
+
+@cube
+@squareroot
+@square
+def  getval():  # Function Defined by KVR
+	return float(input("Enter a Number:"))
+
+#Main Program
+n,sqval,sqrtval,cbval=getval() # Normal Function Call
+print("Square({})={}".format(n,sqval))
+print("SquareRoot({})={}".format(n,sqrtval))
+print("Cube({})={}".format(n,cbval))
+
+
+#DecEx5.py
+def toLower(GL):
+	def convertintolower():
+		line,upc=GL()
+		lwc=line.lower()
+		return line,upc,lwc
+	return convertintolower
+
+def toUpper(GL):
+	def convertintoupper():
+		line=GL()
+		return (line,line.upper())
+	return convertintoupper
+
+@toLower
+@toUpper
+def getLine():
+	return input("Enter a Line of Text:")
+
+#main Program
+line,upc,lwc=getLine()
+print("-"*50)
+print("Given Line={}".format(line))
+print("Upper Case={}".format(upc))
+print("Lower Case={}".format(lwc))
+print("-"*50)
+

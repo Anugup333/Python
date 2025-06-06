@@ -1,0 +1,201 @@
+#Program for Demonstrating the Need of  Variable Length Arguments
+#NOTE: This Program will not Execute as It is bcoz PVM Remembers Latest Function Def (in the case same fucntion names)  Only and More Over PVM Performs Interpretation Process.
+#VarLengthArgsEx1.py
+def  disp(a,b,c,d,e): # Function Def-1 with 5 Params
+	print(a,b,c,d,e) 
+def  disp(a,b,c,d): # Function Def-2 with 4 Params
+	print(a,b,c,d)  
+def  disp(a,b,c): # Function Def-3 with 3 Params
+	print(a,b,c)  
+def  disp(a,b): # Function Def-4 with 2 Params
+	print(a,b)  
+def  disp(a): # Function Def-5 with 1 Param
+	print(a)  
+def  disp(): # Function Def-6 with 0 Param
+	print("empty")  
+
+#Main Program--Family Similar Function Calls with Variable Length args
+disp(10,20,30,40,50) # Function Call-1 with 5 Args
+disp(10,20,30,40)# Function Call-2 with 4 Args
+disp(10,20,30)# Function Call-3 with 3 Args
+disp(10,20)# Function Call-4 with 2 Args
+disp(10)# Function Call-5 with 1 Arg
+disp()# Function Call-6 with 0 Args
+
+
+#Program for Demonstrating the Need of  Variable Length Arguments
+#NOTE: This Program will  Execute as It is.
+#VarLengthArgsEx2.py
+def  disp(a,b,c,d,e): # Function Def-1 with 5 Params
+	print(a,b,c,d,e) 
+
+disp(10,20,30,40,50) # Function Call-1 with 5 Args
+#-------------------------------------------------------------------------------------------
+def  disp(a,b,c,d): # Function Def-2 with 4 Params
+	print(a,b,c,d)  
+
+disp(10,20,30,40)# Function Call-2 with 4 Args
+#-------------------------------------------------------------------------------------------
+def  disp(a,b,c): # Function Def-3 with 3 Params
+	print(a,b,c)  
+disp(10,20,30)# Function Call-3 with 3 Args
+#-------------------------------------------------------------------------------------------
+def  disp(a,b): # Function Def-4 with 2 Params
+	print(a,b)  
+disp(10,20)# Function Call-4 with 2 Args
+#-------------------------------------------------------------------------------------------
+def  disp(a): # Function Def-5 with 1 Param
+	print(a)  
+
+disp(10)# Function Call-5 with 1 Arg
+#-------------------------------------------------------------------------------------------
+def  disp(): # Function Def-6 with 0 Param
+	print("empty")  
+disp()  # Function Call-5 with 0 Arg
+#-------------------------------------------------------------------------------------------
+
+#NOTE: Here we have N-Function Calls and having corresponding N-Function Definitions and It is one of the complex Process to Define.
+# we Have  N-Function Calls and with concept of Variable length Args, we Define single function definition.
+
+
+
+#Program for Demonstrating the Need of  Variable Length Arguments
+# This Program will Execute as It is 
+#PureVarLengthArgsEx1.py
+
+def   disp( *kvr): # Here *kvr is called Variable Length argument and It holds Var Lengths args and whose type is tuple
+	print(kvr,type(kvr))
+
+
+#Main Program--Family Similar Function Calls with Variable Length args
+disp(10,20,30,40,50) # Function Call-1 with 5 Args
+disp(10,20,30,40)# Function Call-2 with 4 Args
+disp(10,20,30)# Function Call-3 with 3 Args
+disp(10,20)# Function Call-4 with 2 Args
+disp(10)# Function Call-5 with 1 Arg
+disp()# Function Call-6 with 0 Args
+
+
+#Program for Demonstrating the Need of  Variable Length Arguments
+# This Program will Execute as It is 
+#PureVarLengthArgsEx2.py
+
+def   disp(*kvr): # Here *kvr is called Variable Length argument and It holds Var Lengths args and whose type is tuple
+	if(len(kvr)==0):
+		print("empty")
+	for val in kvr:
+		print("{}".format(val),end=" ")
+	print()
+
+#Main Program--Family Similar Function Calls with Variable Length args
+disp(10,20,30,40,50) # Function Call-1 with 5 Args
+disp(10,20,30,40)# Function Call-2 with 4 Args
+disp(10,20,30)# Function Call-3 with 3 Args
+disp(10,20)# Function Call-4 with 2 Args
+disp(10)# Function Call-5 with 1 Arg
+disp()# Function Call-6 with 0 Args
+
+
+
+#Program for Demonstrating the Need of  Variable Length Arguments
+# This Program will Execute as It is 
+#PureVarLengthArgsEx3.py
+
+def   disp(sno,sname,*kvr): # Here *kvr is called Variable Length argument and It holds Var Lengths args and whose type is tuple
+	print("-"*50)
+	print("Student Number:{}".format(sno))
+	print("Student Name:{}".format(sname))
+	for val in kvr:
+		print("{}".format(val),end=" ")
+	print("\nNumber of Variable Length Values=",len(kvr))
+	print("-"*50)
+
+#Main Program--Family Similar Function Calls with Variable Length args
+disp(100,"RS",10,20,30,40,50) # Function Call-1 with 5 Args
+disp(200,"TR",10,20,30,40)# Function Call-2 with 4 Args
+disp(300,"DR",10,20,30)# Function Call-3 with 3 Args
+disp(400,"SS",10,20)# Function Call-4 with 2 Args
+disp(500,"JH",10)# Function Call-5 with 1 Arg
+disp(600,"DW")# Function Call-6 with 0 Args
+
+
+#Program for Demonstrating the Need of  Variable Length Arguments
+# This Program will Execute as It is 
+#PureVarLengthArgsEx4.py
+
+def   disp(sno,sname,*kvr): # Here *kvr is called Variable Length argument and It holds Var Lengths args and whose type is tuple
+	print("-"*50)
+	print("Student Number:{}".format(sno))
+	print("Student Name:{}".format(sname))
+	s=0
+	for val in kvr:
+		print("{}".format(val),end=" ")
+		s=s+val
+	print("sum={}".format(s))
+	print("\nNumber of Variable Length Values=",len(kvr))
+	print("-"*50)
+
+#Main Program--Family Similar Function Calls with Variable Length args
+disp(100,"RS",10,20,30,40,50) # Function Call-1 with 5 Args
+disp(200,"TR",10,20,30,40)# Function Call-2 with 4 Args
+disp(300,"DR",10,20,30)# Function Call-3 with 3 Args
+disp(400,"SS",10,20)# Function Call-4 with 2 Args
+disp(500,"JH",10)# Function Call-5 with 1 Arg
+disp(600,"DW")# Function Call-6 with 0 Args
+
+
+
+#Program for Demonstrating the Need of  Variable Length Arguments
+# This Program will Execute as It is 
+#PureVarLengthArgsEx5.py
+
+def   disp(sno,sname,*kvr,city="HYD"): # Here *kvr is called Variable Length argument and It holds Var Lengths args and whose type is tuple
+	print("-"*50)
+	print("Student Number:{}".format(sno))
+	print("Student Name:{}".format(sname))
+	print("Student City:{}".format(city))
+	s=0
+	for val in kvr:
+		print("{}".format(val),end=" ")
+		s=s+val
+	print("sum={}".format(s))
+	print("\nNumber of Variable Length Values=",len(kvr))
+	print("-"*50)
+
+#Main Program--Family Similar Function Calls with Variable Length args
+disp(100,"RS",10,20,30,40,50) # Function Call-1 with 5 Args
+disp(200,"TR",10,20,30,40)# Function Call-2 with 4 Args
+disp(300,"DR",10,20,30)# Function Call-3 with 3 Args
+disp(400,"SS",10,20)# Function Call-4 with 2 Args
+disp(500,"JH",10)# Function Call-5 with 1 Arg
+disp(600,"DW")# Function Call-6 with 0 Args
+
+
+#Program for Demonstrating the Need of  Variable Length Arguments
+# This Program will Execute as It is 
+#PureVarLengthArgsEx6.py
+
+def   disp(sno,sname,*kvr,city="HYD"): # Here *kvr is called Variable Length argument and It holds Var Lengths args and whose type is tuple
+	print("-"*50)
+	print("Student Number:{}".format(sno))
+	print("Student Name:{}".format(sname))
+	print("Student City:{}".format(city))
+	s=0
+	for val in kvr:
+		print("{}".format(val),end=" ")
+		s=s+val
+	print("sum={}".format(s))
+	print("\nNumber of Variable Length Values=",len(kvr))
+	print("-"*50)
+
+#Main Program--Family Similar Function Calls with Variable Length args
+disp(100,"RS",10,20,30,40,50) # Function Call-1 with 5 Args
+disp(200,"TR",10,20,30,40)# Function Call-2 with 4 Args
+disp(300,"DR",10,20,30)# Function Call-3 with 3 Args
+disp(400,"PT",10,20,city="RSA")# Function Call-4 with 2 Args
+disp(500,"JH",10)# Function Call-5 with 1 Arg
+disp(600,"DW")# Function Call-6 with 0 Args
+#disp(700,"DT",city="USA",1.2,2.3,3.4)# Function Call-6 with 0 Args--SyntaxError: positional argument follows keyword argument
+disp(700,"DT",1.2,2.3,3.4,city="USA")
+
+

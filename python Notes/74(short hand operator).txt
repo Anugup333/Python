@@ -1,0 +1,54 @@
+			=====================================================
+				Python-Short Hand Operators
+			=====================================================
+=>General Expression:     Var1=Var1 op Var2
+					at this point of time
+=>We can apply Short Hand Operation by Using Short Hand Operator
+					Var1 op= Var2  ( By Fllowng BODMAS Rule )
+
+=>General Expression:     Var3=Var1 op Var2
+					at this point of time
+
+=>We can't apply Short Hand Operation 
+===========================================================================================
+Req1:		a=10
+			b=20
+			c=a+b  #  Var3=Var1 op Var2
+		Not Possible to Short Hand Operation
+
+Req2:		a=10
+			b=20
+
+
+			a=a+b  # Var1=Var1 op Var2---General Expression
+
+			a += b  # Here += is called Short hand + Operator
+
+Re3:			a=3
+			b=2
+			c=a*b  --------No Short Hand Operation
+
+			a=a*b   # Var1=Var1 op Var2---General Expression
+
+			a *= b # Here *= is short Hand  Operator
+
+Req3:		a=4
+			b=3
+			c=a-b  --------No Short Hand Operation
+
+			a=a-b   # Var1=Var1 op Var2---General Expression
+
+			a -=b  # Here -= is short Hand  Operator
+
+			a=b-a  # we can't write Short Hand Operator This Not Following BODMAS Rule
+
+		where as   a= a+b=====> a +=b   # Possible
+				   a=b+a=====> a +=b	# Possible
+		
+		where as   a=a*b======> a *=b  # Possible
+				  a=b*a======> a * = b  # Possible
+
+
+		Where as   a=a+b*c======> a +=b*c
+
+			   a=a*b+c======> Not Possible to write Short Hand Operator This Not Following BODMAS Rule

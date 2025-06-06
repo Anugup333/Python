@@ -1,0 +1,132 @@
+#Program for Demonstrating Default Thread
+#DefaultThreadNameEx1.py
+import threading
+tname=threading.current_thread().name
+print("Default Thread Name =",tname)
+print("Number of Threads by Default =",threading.active_count())
+
+
+#Program for Demonstrating Default Thread Flow with Functions
+#DefaultThreadFlowEx1.py
+import threading
+def welcome():
+	print("\t5:welcome()--executed by:{}".format(threading.current_thread().name))
+def hello():
+	print("\t7:hello()--executed by:{}".format(threading.current_thread().name))
+def hi():
+	print("\t9:hi()--executed by:{}".format(threading.current_thread().name))
+
+#Main Program
+print("12:---------------------------------------------------------------------------------")
+print("13:Program Execution Started by :{}".format(threading.current_thread().name))
+print("Line:14")
+welcome()
+print("Line:16")
+hello()
+print("Line:18")
+hi()
+print("Line:20")
+print("---------------------------------------------------------------------------------")
+print("Program Execution Ended by :{}".format(threading.current_thread().name))
+print("---------------------------------------------------------------------------------")
+
+
+#Python Program shows the execution of MainThread Only
+#DefaultThreadFlowwithTimeEx1.py
+import threading,time
+def squares(lst):
+	for val in lst:
+		print("\t{}-->Square({})={}".format(threading.current_thread().name,val,val**2))
+		time.sleep(1)
+
+def cubes(lst):
+		for val in lst:
+			print("\t{}-->cube({})={}".format(threading.current_thread().name,val,val**3))
+			time.sleep(1)
+
+#Main Program
+bt=time.time()
+print("---------------------------------------------------------------------------------")
+print("Program Execution Started by :{}".format(threading.current_thread().name))
+print("---------------------------------------------------------------------------------")
+lst=[12,17,4,5,-5,18,14,25,15]
+squares(lst)
+print("---------------------------------------------------------------------------------")
+cubes(lst)
+print("---------------------------------------------------------------------------------")
+print("Program Execution Started by :{}".format(threading.current_thread().name))
+print("---------------------------------------------------------------------------------")
+et=time.time()
+print("Total Execution of this Program by using default thread only=",(et-bt))
+
+#Program for Demonstrating Default Thread Flow with Functions
+#SubThreadsFlowEx1.py
+import threading,time
+def welcome():
+	print("\t5:welcome()--executed by:{}".format(threading.current_thread().name))
+	time.sleep(3)
+def hello():
+	print("\t7:hello()--executed by:{}".format(threading.current_thread().name))
+	time.sleep(3)
+def hi():
+	print("\t9:hi()--executed by:{}".format(threading.current_thread().name))
+	time.sleep(3)
+#Main Program
+print("12:---------------------------------------------------------------------------------")
+print("13:Program Execution Started by :{}".format(threading.current_thread().name))
+print("By Default Number of Threads=",threading.active_count())
+print("14:---------------------------------------------------------------------------------")
+#Create 3 Sub Threads 
+t1=threading.Thread(target=welcome)  # here t1 is called Thread Object---Thread-1
+t1.name="Rossum"
+t2=threading.Thread(target=hello)  # here t2 is called Thread Object---Thread-2
+t2.name="Travis"
+t3=threading.Thread(target=hi)  # here t3 is called Thread Object---Thread-3
+t3.name="HUnter"
+#Dispatch the sub threads
+t1.start()
+t2.start()
+t3.start()
+print("Programatically Number of Threads=",threading.active_count())
+t1.join()
+t2.join()
+t3.join()
+print("Programatically Number of Threads after completion=",threading.active_count())
+print("---------------------------------------------------------------------------------")
+print("Program Execution Ended by :{}".format(threading.current_thread().name))
+print("---------------------------------------------------------------------------------")
+
+
+#Python Program shows the execution of MainThread Only
+#SubThreadsFlowwithTimeEx1.py
+import threading,time
+def squares(lst):
+	for val in lst:
+		print("\t{}-->Square({})={}".format(threading.current_thread().name,val,val**2))
+		time.sleep(1)
+
+def cubes(lst):
+		for val in lst:
+			print("\t{}-->cube({})={}".format(threading.current_thread().name,val,val**3))
+			time.sleep(1)
+
+#Main Program
+bt=time.time()
+print("---------------------------------------------------------------------------------")
+print("Program Execution Started by :{}".format(threading.current_thread().name))
+print("---------------------------------------------------------------------------------")
+lst=[12,17,4,5,-5,18,14,25,15]
+#Create Two Sub Threads
+t1=threading.Thread(target=squares, args=(lst,))
+t2=threading.Thread(target=cubes, args=(lst,))
+#Dispatch the sub threads
+t1.start()
+t2.start()
+t1.join()
+t2.join()
+print("---------------------------------------------------------------------------------")
+print("Program Execution Started by :{}".format(threading.current_thread().name))
+print("---------------------------------------------------------------------------------")
+et=time.time()
+print("Total Execution of this Program by using default thread only=",(et-bt))
+

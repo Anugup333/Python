@@ -1,0 +1,196 @@
+				=================================================
+						Closure in Python
+				=================================================
+=>A Python closure is a nested function which has access to a variable from an enclosing function(Outer Function) that has finished its execution. Such a variable is not bound in the local scope. 
+
+=>The main advantage of Python closures is that we can help avoid the using global values and provide some form of data hiding. They are used in Python decorators.
+
+=>Closures are closely related to nested functions and allow inner functions to capture and retain the enclosing function's local state, even after the outer function has finished execution. Understanding closures requires familiarity with nested functions, variable scope and how Python handles function objects.
+
+Nested Functions: In Python functions can be defined inside other functions. These are called nested functions or inner functions.
+Accessing Enclosing Scope: Inner functions can access variables from the enclosing i.e. outer scope. This is where closures come into play.
+Retention of State: When an inner function i.e. closure captures and retains variables from its enclosing scope, even if the outer function has completed execution or the scope is no longer available.
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+Nested Functions
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+Nested functions in Python refer to the practice of defining one function inside another function. This concept allows us to organize code more effectively, encapsulate functionality and manage variable scope.
+
+Following is the example of nested functions where functionB is defined inside functionA. Inner function is then called from inside the outer function's scope.
+-----------------
+Example
+def functionA():
+   print ("Outer function")
+   def functionB():
+      print ("Inner function")
+   functionB()
+
+#Main Program
+functionA()
+-----------------------------
+Output
+-----------------------------
+Outer function
+Inner function
+------------------------------
+If the outer function receives any argument, it can be passed to the inner function as in the below example.
+
+def functionA(name):
+   print ("Outer function")
+   def functionB():
+      print ("Inner function")
+      print ("Hi {}".format(name))
+   functionB()
+
+#main program
+functionA("Python")
+------------------------------
+Output
+------------------------------
+Outer function
+Inner function
+Hi Python
+-------------------------------
+Variable Scope
+---------------------------------
+When a closure is created i.e. an inner function that captures variables from its enclosing scope, it retains access to those variables even after the outer function has finished executing. This behavior allows closures to "remember" and manipulate the values of variables from the enclosing scope.
+
+Example
+Following is the example of the closure with the variable scope -
+
+def outer_function(x):
+    y = 10
+    def inner_function(z):
+        return x + y + z  # x and y are captured from the enclosing scope
+    
+    return inner_function
+#Main Program
+closure = outer_function(5)
+result = closure(3)
+print(result)  
+------------------------------------------------------
+Output
+18
+------------------------------------------------------
+Creating a closure
+-----------------------------------------------------
+Creating a closure in Python involves defining a nested function within an outer function and returning the inner function. Closures are useful for capturing and retaining the state of variables from the enclosing scope.
+
+Example
+---------------------
+In the below example, we have a functionA function which creates and returns another function functionB. The nested functionB function is the closure.
+
+The outer functionA function returns a functionB function and assigns it to the myfunction variable. Even if it has finished its execution. However, the printer closure still has access to the name variable.
+
+Following is the example of creating the closure in python -
+
+def functionA(name):
+   name ="New name"
+   def functionB():
+      print (name)
+   return functionB
+
+#Main Program
+myfunction = functionA("My name")
+myfunction()
+--------------------------------
+Output
+--------------------------------
+New name
+----------------------------------------------------------------------------------------------------------------------------------------------------
+nonlocal Keyword
+----------------------------------------------------------------------------------------------------------------------------------------------------
+In Python, nonlocal keyword allows a variable outside the local scope to be accessed. This is used in a closure to modify an immutable variable present in the scope of outer variable. Here is the example of the closure with the nonlocal keyword.
+
+Example
+--------------------------------------------
+def functionA():
+   counter =0
+   def functionB():
+      nonlocal counter
+      counter+=1
+      return counter
+   return functionB
+
+#Main Program
+myfunction = functionA()
+retval = myfunction()
+print ("Counter:", retval)
+
+retval = myfunction()
+print ("Counter:", retval)
+
+retval = myfunction()
+print ("Counter:", retval)
+--------------------------------------------
+Output
+-------------------------------------------
+Counter: 1
+Counter: 2
+Counter: 3
+=======================================================================================
+
+
+#ClosureEx1.py
+def  outerfunc(x): # Outer Function
+	print("I am From Outer Function")
+	def innerfunc(y): # inner Function--Called Closure
+		print("I am from Inner Function")
+		z=x+y
+		return z
+	return innerfunc
+
+#Main Program
+ifc=outerfunc(10) # Outer Function Call
+print("Outer Function Call Completed Its Execution")
+print("-------------------------------------------------")
+res=ifc(5) # Inner Function Call
+print("First time=",res)
+print("-------------------------------------------------")
+res=ifc(15) # Inner Function Call
+print("Second time=",res)
+
+#ClosureEx2.py
+def icicibankloanprocess(processingfee): #Outer Function OR Enclosing Function
+	def  iciciemical(emiamt): # Inner Function OR Enclosed Function
+		finalemi=processingfee+emiamt
+		return finalemi
+	return iciciemical
+
+#Main Program
+iciciem=icicibankloanprocess(100) # Outer Function call
+emipay=iciciem(10000) # Inner Function Call
+print("Pay=",emipay)
+emipay=iciciem(15000) # Inner Function Call
+print("Pay=",emipay)
+
+#ClosureEx3.py
+import time
+def  gethours():
+	hr=6 # Local Variable in Outer Function
+	def getmins(): # Inner Function
+		for m in range(1,60):
+			print("\t{}:{}PM".format(hr,m))
+			time.sleep(0.25)
+	return getmins
+
+#Main Program
+gm=gethours() # Outer Function call
+gm()
+
+
+
+#ClosureEx4.py
+def counterinformation():  #  Outer Function
+	counter=0 # Local Variable in Outer Function
+	def  operation(): # Inner Function--Closure
+		nonlocal counter
+		counter=counter+1
+		return counter
+	return operation
+
+#Main Program
+op=counterinformation()
+print("First Time=",op())
+print("Second Time=",op())
+print("Third Time=",op())
+

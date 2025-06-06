@@ -1,0 +1,50 @@
+3. Octal Number System
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+=>The Octal Number System understandable by Micro Processor Kits( 8086 Micro Processor Programming OR 
+    Assembly Lang Programming).
+=>The Octal Number System contains the following
+			Digits:  0 1 2 3 4 5 6 7-----Total : 8
+			Base : 8
+=>Hence Base 8 Literals are called Octal Data.
+=>Programtically, To Store Octal Number System Value, the Octal Data Must be Preceded with a Letter '0o' OR '0O'.
+=>Syntax:      varname=0o Octal Data
+					OR
+			varname=0O Octal Data
+=>Even though we  write Octal Data in Python Programming, The python execution environment automatically Octal Data into Decimal  Number System bcoz Python is one of the High Level Programming lang.
+------------------------
+Examples
+------------------------
+>>> a=0o17
+>>> print(a,type(a))-------------------------15 <class 'int'>
+>>> a=0O123
+>>> print(a,type(a))-------------------------83 <class 'int'>
+>>> a=0o18-----------------------------------SyntaxError: invalid digit '8' in octal literal
+>>> a=0b10102----------------------------SyntaxError: invalid digit '2' in binary literal
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+4. Hexa Decimal Number System
+------------------------------------------------------------------------------------------------------------------------------------------------
+=>The Hexa Decimal Number System used in Development of OSes.
+=>The Hexa Decimal Number System contains the following
+			Digits:  0 1 2 3 4 5 6 7 8 9
+				    A or a(10) , B or b(11), C or c(12), D or d(13) , E or e(14) , F or f(15)-----Total 16
+			Base: 16
+=>hence Base 16 Literals are called Hexa Decimal Number System Values.
+=>=>Programtically, To Store Hexa Decimal  Number System Value, the Hexa Decimal  Data Must be Preceded with a Letter '0x' OR '0X'.
+=>Syntax:      varname=0x Hexa Decimal  Data
+					OR
+			varname=0X Hexa Decimal  Data
+=>Even though we  write Hexa Decimal  Data Data in Python Programming, The python execution environment automatically Hexa Decimal  Data Data into Decimal  Number System bcoz Python is one of the High Level Programming lang.
+------------------------------
+Examples
+------------------------------
+>>> a=0xAC
+>>> print(a,type(a))--------------------------------172 <class 'int'>
+>>> a=0Xbee
+>>> print(a)------------------------------------------3054
+>>> a=0Xface
+>>> print(a)------------------------------------------64206
+>>> a=0Xfacer--------------------------------------SyntaxError: invalid hexadecimal literal
+--------------------------------------------------------------------------------------------------------------------------------------------------------------

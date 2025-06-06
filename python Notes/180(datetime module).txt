@@ -1,0 +1,255 @@
+			=============================================	
+				    Python Datetime
+			=============================================
+=>A date in Python is not a data type of its own, but we can import a module named datetime to work with dates as date objects.
+------------------------------------------------------------------------
+Examples: Import the datetime module and display the current date:
+------------------------------------------------------------------------
+import datetime
+x = datetime.datetime.now()
+print(x) # 2024-12-24 09:32:12.353321
+
+The date contains year, month, day, hour, minute, second, and microsecond.
+------------------------------------------------------------------------
+Example:  Return the year and name of weekday:
+------------------------------------------------------------------------
+import datetime
+x = datetime.datetime.now() # Here x is an object of  <class 'datetime.datetime'>
+print(x.year)  #  2024
+print(x.strftime("%A"))  #Thursday
+-------------------------------------------------------------------------
+The strftime() Instance Method Present in datetime class
+--------------------------------------------------------------------------
+Syntax:      varname=DateTimeObj.strftime("Format Specifier")
+=>The datetime object has a method for formatting date objects into readable strings called strftime(), and takes one parameter, format, to specify the format of the returned string:
+***********************************************************************************************
+A reference of all the legal format codes:
+***********************************************************************************************
+Format	 	Description						Example	: 
+-------------------------------------------------------------------------------------------------------
+%a		Weekday, short version					Wed	
+%A		Weekday, full version						Wednesday	
+%w		Weekday as a number 0-6,				0 is Sunday	3	
+%d		Day of month 01-31						31	
+%b		Month name, short version				Dec	
+%B		Month name, full version					December	
+%m		Month as a number 01-12					12	
+%y		Year, short version, without century		25
+%Y		Year, full version							2025
+----------------------------------------------------------------------------------------------------
+%H		Hour 00-23								17	
+%I		Hour 00-12								05	
+%p		AM/PM									PM	
+%M		Minute 00-59							41	
+%S		Second 00-59							08	
+%f		Microsecond 000000-999999				548513	
+----------------------------------------------------------------------------------------------------
+%j		Day number of year 001-366				365	
+%U		Week number of year,					Sunday as the first day of week, 00-53	52	
+%W		Week number of year,					Monday as the first day of week, 00-53	52	
+%c		Local version of date and time				Mon Dec 31 17:41:00 2018	
+%C		Century									20	
+%x		Local version of date						12/31/18	
+%X		Local version of time						17:41:00	
+----------------------------------------------------------------------------------------------------------
+%u		ISO 8601 weekday						(1-7)	1	
+%V		ISO 8601 weeknumber					(01-53)	01
+**************************************************************************************
+Creating Date Objects
+--------------------------------------------------------------------------
+=>To create a date, we can use the datetime() constructor of datetime class  of the datetime module.
+=>The datetime() constructor requires three parameters to create a date: year, month, day.
+--------------------------------------------------------------------------
+Example:  Create a date object:
+--------------------------------------------------------------------------
+import datetime
+x = datetime.datetime(2020, 5, 17)
+print(x) # 2020-05-17 00:00:00
+The datetime() constructor also takes parameters for time (hour, minute, second, microsecond), but they are optional, and has a default value of 0.
+-----------------------------------------------------------------------------------------------
+Calculating the Difference Between Two Dates in Python--Most Imp
+-----------------------------------------------------------------------------------------------
+=>Calculating the difference between two dates is a common requirement in programming, essential for tracking project durations, scheduling events, or measuring performance intervals. The Python datetime module offers powerful tools for manipulating date and time data to meet these needs.
+-----------------------------------------------------------------
+Difference Between Current Time and a Specific Datetime
+-----------------------------------------------------------------
+=>To calculate the difference between the current date and time and a specific date and time, you first need to obtain the current datetime using the datetime.now() method and then subtract the specific date time from it.
+---------------
+Examples
+---------------
+from datetime import datetime
+now = datetime.now()
+past = datetime(2022, 4, 15, 16, 30, 0)  # Example past date
+difference = now - past
+print(difference)    # Output: 694 days, 20:57:03.762774
+print(type(difference)) # Output: <class 'datetime.timedelta'>
+
+Note that the result of subtracting datetime objects is a timedelta object.
+timedelta objects are essential for determining intervals between dates, calculating future or past dates, and many other time-related tasks. 
+--------------------------------------------------------------------
+Difference Between Two Datetime Objects
+--------------------------------------------------------------------
+To find the difference between two datetime objects, simply subtract them:
+from datetime import datetime
+datetime1 = datetime(2023, 10, 1, 8, 15, 25)
+datetime2 = datetime(2023, 9, 28, 12, 0, 0)
+difference = datetime1 - datetime2
+print(difference)   # Output: 2 days, 20:15:25
+--------------------------------------------------------------------
+Difference Between Two Date Objects
+--------------------------------------------------------------------
+Similarly, if you have two date objects, you can directly subtract one from the other to calculate the difference between them.
+
+from datetime import date
+date1 = date(2023, 10, 1)
+date2 = date(2023, 9, 28)
+difference = date1 - date2
+print(difference)     # Output: 3 days, 0:00:00
+--------------------------------------------------------------------
+Difference Between Two Dates in String Format
+--------------------------------------------------------------------
+If you’re working with dates stored as strings, you’ll first need to convert them into datetime objects before calculating the difference.
+Python’s datetime.strptime() method is specifically designed for this conversion. You’ll need to provide a format string that matches the
+structure of your date strings.
+Once converted, you can proceed with calculating the difference using the same subtraction
+----------------------------------------------
+from datetime import datetime
+date_str1 = "2023-08-25"
+date_str2 = "2023-08-20"
+
+datetime1 = datetime.strptime(date_str1, "%Y-%m-%d")
+datetime2 = datetime.strptime(date_str2, "%Y-%m-%d")
+
+difference = datetime1 - datetime2
+print(difference) # Output: 5 days, 0:00:00
+----------------------------------------------
+Finding the Difference in Seconds
+----------------------------------------------
+There are two primary ways to calculate the difference between dates in seconds:
+Method : total_seconds()
+-----------------------------------------------
+=>The timedelta object, which you get from subtracting datetime objects, has a convenient method called total_seconds(). 
+This method neatly converts the difference (including days, seconds, and microseconds) into a total number of seconds.
+
+=>To use this, first, calculate the difference between your two datetime objects and then call total_seconds() on the resulting timedelta.
+-------------
+Examples
+-------------
+from datetime import datetime
+datetime1 = datetime(2023, 10, 1, 8, 15, 25)
+datetime2 = datetime(2023, 9, 28, 12, 0, 0)
+difference = datetime1 - datetime2
+difference_in_seconds = difference.total_seconds()
+print(difference_in_seconds)  # Output: 245725.0
+---------------------------------------------------------------------------
+Examples
+----------------------------------------------------------------------------
+from datetime import datetime
+from dateutil.relativedelta import relativedelta
+
+start_time = datetime(2022, 4, 28, 12, 0, 0)
+end_time = datetime(2023, 10, 1, 8, 15, 25)
+
+# Calculate the difference
+time_diff = relativedelta(end_time, start_time)
+
+# Display the result
+print("Years:", time_diff.years)      # Output: Years: 1
+print("Months:", time_diff.months)    # Output: Months: 5
+print("Days:", time_diff.days)        # Output: Days: 2
+print("Hours:", time_diff.hours)      # Output: Hours: 20
+print("Minutes:", time_diff.minutes)  # Output: Minutes: 15
+print("Seconds:", time_diff.seconds)  # Output: Seconds: 25
+-----------------------------------------------------------------------------
+Misc Information of Date
+=============================================================================
+Get the Current Date
+----------------------------
+To return the current local date today() function of the date class is used. today() function comes with several attributes (year, month, and day). These can be printed individually. 
+-------------------
+# Python program to print current date
+from datetime import date
+
+# calling the today  function of date class
+today = date.today()
+print("Today's date is", today)  # Today's date is 2021-08-19
+------------------------------------------------------------
+Get Today’s Year, Month, and Date
+------------------------------------------------------------
+We can get the year, month, and date attributes from the date object using the year, month and date attribute of the date class.
+
+from datetime import date
+# date object of today's date
+today = date.today() 
+print("Current year:", today.year) # Current year: 2021
+print("Current month:", today.month) # Current month: 8
+print("Current day:", today.day) # Current day: 19
+------------------------------------------
+Get Date from Timestamp
+------------------------------------------
+We can create date objects from timestamps 
+by using the fromtimestamp() method. 
+The timestamp is the number of seconds from 1st January 1970 at UTC to a particular date.
+
+from datetime import datetime
+ 
+# Getting Datetime from timestamp
+date_time = datetime.fromtimestamp(1887639468)
+print("Datetime from timestamp:", date_time)  # Datetime from timestamp: 2029-10-25 16:17:48
+--------------------------------------------------------------------------
+Convert Date to String
+---------------------------
+We can convert date object to a string representation using two functions isoformat() and strftime().
+
+from datetime import date
+   
+# calling the today function of date class
+today = date.today()
+   
+# Converting the date to the string
+Str = date.isoformat(today)
+print("String Representation", Str) # String Representation 2021-08-19 
+print(type(Str)) # <class 'str'>
+----------------------------------------------------------------------------------------
+Most IMP
+---------------------------------------------------------------------------------------
+Attributes of DateTime using DateTime 
+---------------------------------------------------
+datetime.now() have different attributes, 
+same as attributes of time such as year, month, date, hour, minute, and second.
+
+# importing datetime module for now()
+import datetime
+
+# using now() to get current time
+current_time = datetime.datetime.now()
+
+# Printing attributes of now().
+print("The attributes of now() are :")
+print("Year :", current_time.year) # Year : 2022
+print("Month : ", current_time.month) # Month :  6
+print("Day : ", current_time.day) # Day :  20
+print("Hour : ", current_time.hour)# Hour :  16
+print("Minute : ", current_time.minute) # Minute :  3
+print("Second :", current_time.second) # Second : 25
+print("Microsecond :", current_time.microsecond) # Microsecond : 547727
+-------------------------------------------------------------------------------------------------------
+Examples
+--------------------------
+from datetime import datetime
+now = datetime.now() # current date and time
+year = now.strftime("%Y")
+print("year:", year)
+
+month = now.strftime("%m")
+print("month:", month)
+
+day = now.strftime("%d")
+print("day:", day)
+
+time = now.strftime("%H:%M:%S")
+print("time:", time)
+
+date_time = now.strftime("%m/%d/%Y, %H:%M:%S")
+print("date and time:",date_time)	
+=================================================================

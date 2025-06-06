@@ -1,0 +1,28 @@
+# Reset and Turtle Clear Drawings
+import turtle
+import time 
+t1 = turtle.Turtle()
+t1.pencolor("blue")
+t1.penup()
+t1.goto(-200,-50)
+t1.pendown()
+t1.fillcolor("pink")
+t1.begin_fill()
+t1.left(60)
+t1.forward(400)
+t1.right(120)
+t1.forward(400)
+t1.right(120)
+t1.forward(400)
+t1.penup()
+t1.goto(200,180)
+t1.pendown()
+t1.forward(400)
+t1.left(120)
+t1.forward(400)
+t1.left(120)
+t1.forward(400)
+t1.end_fill()
+t1.hideturtle()
+
+time.sleep(10)

@@ -1,0 +1,45 @@
+#Program for Reading employee Values from KBD
+# and Save them in File by using Pickling Process
+#EmpPickEx1.py
+import pickle
+def saverecord():
+    with open("emp.pick","ab") as fp:
+        #Read Employee Values from KBD
+        print("-----------------------------------")
+        empno=int(input("Enter Employee Number:"))
+        empname=input("Enter Employee Name:")
+        empsal=float(input("Enter Employee Salary:"))
+        print("-----------------------------------")
+        #Create a List for placing emp values
+        lst=[]
+        lst.append(empno)
+        lst.append(empname)
+        lst.append(empsal)
+        #Save lst data into file by using dump()
+        pickle.dump(lst,fp)
+        print("Employee Record Saved into the File")
+        print("-----------------------------------")
+
+#Main Program
+saverecord()
+
+
+
+#Program for reading the employee records
+# from the file where employee records present
+#EmpUnPickEx1.py
+import pickle
+def readrecords():
+    with open("emp.pick","rb") as fp:
+        print("="*50)
+        while(True):
+            try:
+                record=pickle.load(fp)
+                for val in record: # [100, 'RS', 2.3]
+                    print("\t{}".format(val),end="\t")
+                print()
+            except EOFError:
+                print("=" * 50)
+                break
+#Main Program
+readrecords()

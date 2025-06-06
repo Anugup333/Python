@@ -1,0 +1,101 @@
+#Program for Demonstrating the logging Concept.
+#LogEx1.py
+import logging
+logging.basicConfig()
+logging.critical("critical message")
+logging.error("error message")
+logging.warning("warning message")
+logging.info("error message")
+logging.debug("error message")
+
+#Program for Demonstrating the logging Concept.
+#LogEx2.py
+import logging
+logging.basicConfig(level=40)
+logging.critical("critical message")
+logging.error("error message")
+logging.warning("warning message")
+logging.info("Informational error message")
+logging.debug("Debug error message")
+
+#Program for Demonstrating the logging Concept.
+#LogEx3.py
+import logging
+logging.basicConfig(level=logging.ERROR)
+logging.critical("critical message")
+logging.error("error message")
+logging.warning("warning message")
+logging.info("Informational error message")
+logging.debug("Debug error message")
+
+#Program for Demonstrating the logging Concept.
+#LogEx4.py
+import logging
+logging.basicConfig(level=logging.ERROR,format='%(asctime)s  : %(levelname)s: %(message)s',datefmt='%d-%m-%Y  %I:%M:%S %p ')
+logging.critical("critical message")
+logging.error("error message")
+logging.warning("warning message")
+logging.info("Informational error message")
+logging.debug("Debug error message")
+
+#Program for Demonstrating the logging Concept.
+#LogEx5.py
+import logging
+logging.basicConfig(filename="logs.data",level=logging.ERROR,format='%(asctime)s  : %(levelname)s: %(message)s',datefmt='%d-%m-%Y  %I:%M:%S %p ')
+logging.critical("critical message")
+logging.error("error message")
+logging.warning("warning message")
+logging.info("Informational error message")
+logging.debug("Debug error message")
+print("Log File Created and Log Messages written--Verify")
+
+#Program for Demonstrating the logging Concept.
+#LogEx6.py
+import logging
+logging.basicConfig(filename="logs.data",filemode="w",level=logging.ERROR,format='%(asctime)s  : %(levelname)s: %(message)s',datefmt='%d-%m-%Y  %I:%M:%S %p ')
+logging.critical("critical message")
+logging.error("error message")
+logging.warning("warning message")
+logging.info("Informational error message")
+logging.debug("Debug error message")
+print("Log File Created and Log Messages written--Verify")
+
+#LogEx7.py
+import logging
+def divop(a,b):
+	if(b==0):
+		logging.basicConfig(filename="E:\\KVR-PYTHON-6PM\\LOGGING\\NOTES\\error.data",level="ERROR",format='%(asctime)s  : %(levelname)s: %(message)s',datefmt='%d-%m-%Y  %I:%M:%S %p ')
+		logging.error("Don't Enter Zero For Deno a={} b={}...take Care".format(a,b))
+		print("ERROR written to log file")
+	else:
+		logging.critical("Done Well")
+		logging.error("Result="+str(a/b))
+		print("Div={}".format(a/b))
+
+#Main Program
+print("Program exectuion started")
+a=float(input("Enter Value of a:"))
+b=float(input("Enter Value of b:"))
+divop(a,b)
+print("Program exectuion completed
+
+#LogEx8.py
+import logging
+def divop(a,b):
+	if(b==0):
+		logging.basicConfig(filename="E:\\KVR-PYTHON-6PM\\LOGGING\\NOTES\\error.data",level="ERROR",format='%(asctime)s  : %(levelname)s: %(message)s',datefmt='%d-%m-%Y  %I:%M:%S %p ')
+		logging.error("Don't Enter Zero For Deno a={} b={}...take Care".format(a,b))
+		print("ERROR written to log file")
+	else:
+		logging.basicConfig(filename="E:\\KVR-PYTHON-6PM\\LOGGING\\NOTES\\result.data",level="INFO",format='%(asctime)s  : %(levelname)s: %(message)s',datefmt='%d-%m-%Y  %I:%M:%S %p ')
+		logging.info("Done Well")
+		logging.info("Result="+str(a/b))
+		print("Div={}".format(a/b))
+
+#Main Program
+print("Program exectuion started")
+a=float(input("Enter Value of a:"))
+b=float(input("Enter Value of b:"))
+divop(a,b)
+print("Program exectuion completed")
+

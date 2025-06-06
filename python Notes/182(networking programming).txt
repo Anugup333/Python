@@ -1,0 +1,141 @@
+				=============================================================
+				Introduction to Network Programming OR Socket Programming
+						( socket module )
+				=============================================================
+=>The purpose of Network Programming OR Socket Programming is that "To Share the Data Between Multiple Devices which are located either in Same Network or Different Network".
+=>To Share the Data Between Multiple Devices which are located either in Same Network or Different Network, there must exist physical Establishment of Network.
+-------------------------------------------------
+Definition of Network
+-------------------------------------------------
+=>A Network is Collection of Autonomous Inter-Connected Computers Connected  with Server.
+-------------------------------------------------
+=>To do Network Programming OR Socket Programming, there must exist physical Establishment of Network.
+=>In Network Programming OR Socket Programming, we develop Two Types of Programs. They are
+
+					1. Server Side Program
+					2. Client Side Program
+-----------------------------------------------------------------------
+Definition of Server Side Program
+-----------------------------------------------------------------------
+=>A Server Side Program is one, which is always Receive the Request from Client Side Program, Process the Request and Gives Response Back to Client Side Program.
+-----------------------------------------------------------------------
+Definition of Client Side Program
+-----------------------------------------------------------------------
+=>A Client Side Program is one, which is always makes a Request to Server Side Program and Obtains the Response from Server Side Program.
+-----------------------------------------------------------------------
+Definition of DNS
+-----------------------------------------------------------------------
+=>DNS stands for Domain Naming System/Service. 
+=>DNS Represents Name of the Physical machine where Server Side Program Resides
+=>The Default DNS of Every Computer is "localhost".
+-----------------------------------------------------------------------
+Definition of IP Address
+-----------------------------------------------------------------------
+=>IP Address stands for Internet Protocol Address.
+=>IP Address Represents Physical Address of the Machine where Server Side Program Resides.
+=> The Default IPAddress of Every Computer is 127.0.0.1 (Loop Back Address).
+-----------------------------------------------------------------------
+Definition of PortNo
+-----------------------------------------------------------------------
+=>A Port Number is one of the Logical Numerical ID where the Server Side Program is Running
+-----------------------------------------------------------------------
+Hence Every Server Side Program Must be available at Certain (DNS/IPAddress, PortNumber)
+============================================x=======================================================
+
+				=======================================================
+				     Types of Applications in Network Programming
+				=======================================================
+=>In Network Programming, we develop Two Types of Programs. They are
+						1. Server Side Program
+						2. Client Side Program
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+Steps for Developing  Server Side Programs
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+Step-1: import socket and other modules if Required
+Step-2: Create an Object of socket at Server Side Program called Server Socket.
+Step-3: Every Server Side Program(Server Socket) Must BIND with Certain DNS/IP Address  and Port Number.
+Step-4: Every Server Side Program(Server Socket)  must be CONFIGURED in such way that to How Many Client Side 
+              Program It can Communicate.
+Step-5: Every Server Side Program(Server Socket)  must be ACCEPT the Request of Client Side Program (Client Socket)
+Step-6: Every Server Side Program(Server Socket)  must be READ Request of Client Side Program, PROCESS and Gives 
+              RESPONSE back to Client Side Program.
+Step-7:  Repeat Step-5 and Step-6 Until All Requests of Client Side Program Completed.
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+Steps for Developing  Client Side Programs
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+Step-1: import socket and other modules if Required
+Step-2: Create an Object of socket at Client Side Program called Client Socket.
+Step-3: Every Client Side Program (Client Socket) Must get CONNECTION from Server Side Program by passing ( DNS/IP 
+              Address,Port Number)
+Step-4: Every Client Side Program (Client Socket) Must make Request to the Server Side Program (Server Socket)
+Step-5: Every Client Side Program (Client Socket) Must Receive the Response from Server Side Program (Server Socket).
+Step-6: Repeat Step-4 and Step-5 Until All Requests of Client Side Program Completed.
+--------------------------------------------------------------------------------------------------------------------------------------------------
+-------
+			============================================================================
+				Module Name Required for Developing Network Programming Applications--socket
+			============================================================================
+=>The module Required for Developing Network Programming Applications is 'socket'.
+=>The General meaning of socket is the "It is one of the Bi-Directional Communication entity between Two Devices".
+=>If we create socket object at Client Side Program then It is called Client Socket.
+=>If we create socket object at Server Side Program then It is called Server Socket.
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+Functions in 'socket'
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+1. socket()
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+=>Syntax:    varname=socket.socket()
+=>This Function is used for Creating an object socket 
+=>Here varname is socket Object  whose type is <class, 'socket.Socket'>
+=>If we create socket object at Client Side Program then It is called Client Socket.
+=>If we create socket object at Server Side Program then It is called Server Socket.
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+2. bind()
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+Syntax:     ServerSockobj.bind( ("DNS/IP Address",portno ) )
+=>This function is used Making Server Socket object  BINDs with Certain DNS/IP Address  and Port Number.
+Examples:  ServerSockobj.bind(("localhost",9999))
+					OR
+Examples:  ServerSockobj.bind(("127.0.0.1",9999))
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+3. listen()
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+=>Syntax:     serversockobj.listen(Int Value)
+=>This function is used for Configuring the Server Side Program in such way that to How Many Client Side Program It can Communicate.
+Examples:   ServerSockObj.listen(2)
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+4. accept()
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+=>Syntax:       var1,var2 =serversockobj.accept()
+=>This Function is used for Accepting the Request of Client Side Program
+=>Accepting the  Request of Client Side Program is Nothing but Obtaining Client Socket(contains Request Data) and 
+    Address of Client Side Program.
+=>Here var1 Represents Client Socket(contains Request Data).
+=>Here var2 Represents Address of Client Side Program.
+Examples:     clientsockobj,ClientAddr=serversockobj.accept()
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+5. recv() with decode()
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+=>Syntax:         bytesdataobj=clientsockobj.recv(1024/2048/4096)
+			  strdata	=bytesdataobj.decode()
+							OR
+			 strdata=clientsockobj.recv(1024/2048/4096).decode()
+=>This Function is used for Receving the Request of Client Side Program at Server Side Program and This Function can also be used at Client  Side program for Receving the Response from Server Side Program.
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+6. send() with encode()
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+=>Syntax:      bytesdataobj=str(non-str data).encode()
+			ClientSockObj.send(bytesdataobj)
+					OR
+			ClientSockObj.send( str(non-str data).encode()  )
+=>This Function is used for Sending the Request from Client Side Program to Server Side Program and we can also use at Server Side Program for Sending Response to the Client Side Program.
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+7. connect()
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+=>Syntax:    ClientSockObj.connect(("DNS/IP Address", portno))
+=>This Function is used for Obtaining the The Connection from Server Side Program by the Client Side Program.
+Examples:   ClientSockObj.connect((localhost", 9999))
+					OR
+Examples:   ClientSockObj.connect((127.0.0.1", 9999))
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+

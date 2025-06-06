@@ -1,0 +1,376 @@
+=====================================================================================
+	Number of approaches to call original methods / constructors  from Overridden methods / Constructors
+	=====================================================================================
+=>We have two approches to call original method / constructors of base class from overridden method / constructors of derived class. They are
+
+	1) By using   super()
+	2) By using Class Name
+------------------------------------------------------------------------
+1) By using   super():
+------------------------------------
+=>super() is one of the pre-defined function, which is used for calling super class  original method / constructor from overridden method / constructors of derived class.
+
+Syntax1:-       super().methodname()
+		         super().__init__()
+					OR
+			super().methodname(Val1,val2.....Val-n)
+		       super().__init__(Val1,val2.....Val-n)
+
+=>with super() we are able to call only immediate base class method / Constructor but unable to call Specified method / Constructor  of base Class . To do this we must use class name approach.
+----------------------------------------------------------------
+2) By using Class Name:
+----------------------------------------------------------------
+=>By using ClassName approach, we can call any base class method / constructor name from the context of derived class method / constructor names.
+
+Syntax1:-      	ClassName.methodname(self)
+			ClassName.__init__(self)
+					OR
+			ClassName.methodname(self,val1,val2,......val-n)
+			ClassName.__init__(self,val1,val2,......val-n)
+-----------------------------------------------------------------X--------------------------------------------------------------------------
+		===========================================
+			Constructor Overriding in Python
+		===========================================
+=>Constructor Overriding=Constructor Heading is same + Method Body is Different
+			(OR)
+=>The process of re-defining the original Constructor of base class into various derived classes for Initlizing  different Obejcts with Different values  is called Constructor Overriding.
+=>To use Constructor Overriding in python program we must apply Inheritance Principle.
+=>Constructor Overriding used for implementing Polymorphism Principle.
+    ( PLOYMORPHISM<----Constructor OVERRIDING<-----INHERITANCE<----CLASS AND OBJECTS )
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+#PolyEx11.py
+class Circle:
+    def __init__(self):#Original Constructor
+        print("Constructor--Circle Drawing")
+class Rect(Circle):
+    def __init__(self): # Overridden Constructor
+        print("Constructor--Rect Drawing")
+        super().__init__() # will call Base Class Constructor from Derived Class Constructor
+
+#Main Program
+print("w.r.t Rect Class Object")
+r=Rect() # Object Creation--Makes the PVM to Call Constructor
+
+#PolyEx12.py
+class Circle:
+    def __init__(self):#Original Constructor
+        print("Constructor--Circle Drawing")
+class Rect(Circle):
+    def __init__(self): # Overridden Constructor
+        print("Constructor--Rect Drawing")
+        super().__init__() # will call Base Class Constructor from Derived Class Constructor
+class Square(Rect):
+    def __init__(self): # Overridden Constructor
+        print("Constructor--Square Drawing")
+        super().__init__() # will call Base Class Constructor from Derived Class Constructor
+
+#Main Program
+print("w.r.t Square Class Object")
+s=Square() # Object Creation--Makes the PVM to Call Constructor
+
+#PolyEx13.py
+class Circle:
+    def __init__(self):#Original Constructor
+        print("Constructor--Circle Drawing")
+class Rect(Circle):
+    def __init__(self): # Overridden Constructor
+        print("Constructor--Rect Drawing")
+class Square(Rect):
+    def __init__(self): # Overridden Constructor
+        print("Constructor--Square Drawing")
+        Circle.__init__(self)
+        Rect.__init__(self)
+
+
+#Main Program
+print("w.r.t Square Class Object")
+s=Square() # Object Creation--Makes the PVM to Call Constructor
+
+#PolyEx14.py
+class Circle:
+    def __init__(self):#Original Constructor
+        print("Constructor--Circle Drawing")
+class Rect:
+    def __init__(self): # Original Constructor
+        print("Constructor--Rect Drawing")
+class Square(Rect,Circle):
+    def __init__(self): # Overridden Constructor
+        print("Constructor--Square Drawing")
+        super().__init__() # OR Rect.__init__(self)
+        Circle.__init__(self)
+#Main Program
+print("w.r.t Square Class Object")
+s=Square() # Object Creation--Makes the PVM to Call Constructor
+
+#PolyEx15.py
+class Circle:
+    def area(self): # Original Method
+        self.r=float(input("Enter Radius:"))
+        self.ac=3.14*self.r**2
+        print("Area of Circle=",self.ac)
+class Square(Circle):
+    def area(self):# Overridden Method
+        self.s = float(input("Enter Side:"))
+        self.sa = self.s ** 2
+        print("Area of Square=", self.sa)
+        print("-----------------------------------")
+        super().area()
+class Rect(Square):
+    def area(self): # Overridden Method
+        self.L = float(input("Enter Length:"))
+        self.B = float(input("Enter Breadth:"))
+        self.ra = self.L * self.B
+        print("Area of Rectangle=", self.ra)
+        print("-----------------------------------")
+        super().area()
+
+#Main Program
+r=Rect()
+r.area()
+
+#PolyEx16.py
+class Circle:
+    def area(self): # Original Method
+        self.r=float(input("Enter Radius:"))
+        self.ac=3.14*self.r**2
+        print("Area of Circle=",self.ac)
+class Square:
+    def area(self):# Original Method
+        self.s = float(input("Enter Side:"))
+        self.sa = self.s ** 2
+        print("Area of Square=", self.sa)
+
+class Rect(Circle,Square):
+    def area(self): # Overridden Method
+        self.L = float(input("Enter Length:"))
+        self.B = float(input("Enter Breadth:"))
+        self.ra = self.L * self.B
+        print("Area of Rectangle=", self.ra)
+        print("-----------------------------------")
+        super().area() # OR Circle.area(self)
+        print("-----------------------------------")
+        Square.area(self)
+
+#Main Program
+r=Rect()
+r.area()
+
+#PolyEx17.py
+class Circle:
+    def area(self,r): # Original Method
+        self.ac=3.14*r**2
+        print("Area of Circle=",self.ac)
+class Square(Circle):
+    def area(self,s):# Overridden Method
+        self.sa = s ** 2
+        print("Area of Square=", self.sa)
+        print("-----------------------------------")
+        super().area(float(input("Enter Radius Value:")))
+class Rect(Square):
+    def area(self,L,B): # Overridden Method
+        self.ra = L*B
+        print("Area of Rectangle=", self.ra)
+        print("-----------------------------------")
+        super().area(float(input("Enter Side Value:")))
+
+#Main Program
+r=Rect()
+L = float(input("Enter Length:"))
+B = float(input("Enter Breadth:"))
+r.area(L,B)
+
+#PolyEx18.py
+class Circle:
+    def area(self,r): # Original Method
+        self.ac=3.14*r**2
+        print("Area of Circle=",self.ac)
+class Square:
+    def area(self,s):# Original Method
+        self.sa = s ** 2
+        print("Area of Square=", self.sa)
+        print("-----------------------------------")
+class Rect(Circle,Square):
+    def area(self,L,B): # Overridden Method
+        self.ra = L*B
+        print("Area of Rectangle=", self.ra)
+        print("-----------------------------------")
+        Square.area(self,float(input("Enter Side Value:")))
+        print("-----------------------------------")
+        Circle.area(self, float(input("Enter Radius:")))
+#Main Program
+r=Rect()
+L = float(input("Enter Length:"))
+B = float(input("Enter Breadth:"))
+r.area(L,B)
+
+#PolyEx19.py
+class Circle:
+    def __init__(self): # Original Constructor
+        self.r=float(input("Enter Radius:"))
+        self.ac=3.14*self.r**2
+        print("Area of Circle=",self.ac)
+class Square(Circle):
+    def __init__(self):# Overridden Constructor
+        self.s = float(input("Enter Side:"))
+        self.sa = self.s ** 2
+        print("Area of Square=", self.sa)
+        print("-----------------------------------")
+        super().__init__()
+class Rect(Square):
+    def __init__(self): # Overridden Constructor
+        self.L = float(input("Enter Length:"))
+        self.B = float(input("Enter Breadth:"))
+        self.ra = self.L * self.B
+        print("Area of Rectangle=", self.ra)
+        print("-----------------------------------")
+        super().__init__()
+
+
+#Main Program
+r=Rect() # Object Creation--PVM calls Constructor
+
+#PolyEx19.py
+class Circle:
+    def __init__(self): # Original Constructor
+        self.r=float(input("Enter Radius:"))
+        self.ac=3.14*self.r**2
+        print("Area of Circle=",self.ac)
+class Square:
+    def __init__(self):# Original Constructor
+        self.s = float(input("Enter Side:"))
+        self.sa = self.s ** 2
+        print("Area of Square=", self.sa)
+        print("-----------------------------------")
+
+class Rect(Square,Circle):
+    def __init__(self): # Overridden Constructor
+        self.L = float(input("Enter Length:"))
+        self.B = float(input("Enter Breadth:"))
+        self.ra = self.L * self.B
+        print("Area of Rectangle=", self.ra)
+        print("-----------------------------------")
+        super().__init__()
+        Circle.__init__(self)
+#Main Program
+r=Rect() # Object Creation--PVM calls Constructor
+
+#PolyEx21.py
+class Circle:
+    def __init__(self,r): # Original Constructor
+        self.ac=3.14*r**2
+        print("Area of Circle=",self.ac)
+class Square(Circle):
+    def __init__(self,s):# Overridden Constructor
+        self.sa = s ** 2
+        print("Area of Square=", self.sa)
+        print("-----------------------------------")
+        super().__init__(float(input("Enter Radius:")))
+class Rect(Square):
+    def __init__(self,L,B): # Overridden Constructor
+        self.ra = L*B
+        print("Area of Rectangle=", self.ra)
+        print("-----------------------------------")
+        super().__init__(float(input("Enter Side:")))
+
+#Main Program
+L = float(input("Enter Length:"))
+B = float(input("Enter Breadth:"))
+r=Rect(L,B) # Object Creation--PVM calls Constructor
+
+#PolyEx22.py
+class Circle:
+    def __init__(self,r): # Original Constructor
+        self.ac=3.14*r**2
+        print("Area of Circle=",self.ac)
+class Square:
+    def __init__(self,s):# Original Constructor
+        self.sa = s ** 2
+        print("Area of Square=", self.sa)
+        print("-----------------------------------")
+class Rect(Circle,Square):
+    def __init__(self,L,B): # Overridden Constructor
+        self.ra = L*B
+        print("Area of Rectangle=", self.ra)
+        print("-----------------------------------")
+        Square.__init__(self,float(input("Enter Side:")))
+        print("-----------------------------------")
+        Circle.__init__(self, float(input("Enter Radius:")))
+
+
+#Main Program
+Rect(float(input("Enter Length:")),float(input("Enter Breadth:"))) # Object Creation--PVM calls Constructor
+
+#PolyEx23.py
+class Circle:
+    def __init__(self,r): # Original Constructor
+        self.ac=3.14*r**2
+        print("Area of Circle=",self.ac)
+class Square(Circle):
+    def __init__(self,s):# Overridden Constructor
+        self.sa = s ** 2
+        print("Area of Square=", self.sa)
+        print("-----------------------------------")
+class Rect(Square):
+    def __init__(self,s=0):
+        self.area(L,B)
+    def area(self,L,B): # Overridden Constructor
+        self.ra = L*B
+        print("Area of Rectangle=", self.ra)
+        print("-----------------------------------")
+        Square.__init__(self,float(input("Enter Side:")))
+        Circle.__init__(self,float(input("Enter Radius:")))
+#Main Program
+L=float(input("Enter Length:"))
+B=float(input("Enter Breadth:"))
+r=Rect() # Object Creation--PVM calls Default Constructor
+
+#PolyEx24.py
+class C1:
+    def x(self):
+        print("C1-X()")
+class C2(C1):
+    def x(self):
+        print("C2-X()")
+class C3(C1):
+    def x(self):
+        print("C3-X()")
+class C4(C2):
+    def x(self):
+        print("C4-X()")
+class C5(C3):
+    def x(self):
+        print("C5-X()")
+class C6(C4,C5):
+    def x(self):
+        print("C6-X()")
+        C1.x(self)
+        C2.x(self)
+        C3.x(self)
+        super().x()  # OR C4.x(self)
+        C5.x(self)
+
+#main Program
+C6().x() # Name-Less object
+
+#PolyEx25.py
+class India:
+    def lang(self):
+        print("Indians Speaks Multiple Languages")
+    def cnttype(self):
+        print("India is a Developing Country")
+class USA:
+    def lang(self):
+        print("Americans Speaks English Language")
+    def cnttype(self):
+        print("USA is a Developed Country")
+#Main Program
+#io=India()
+#us=USA()
+for obj in (India(),USA()):
+    obj.lang()
+    obj.cnttype()
+    print("-----------------------------------")
+# Here obj contains Ref of India() and USA()
+# and hence obj is called Polymorphic Object
+
+

@@ -1,0 +1,323 @@
+#Function Def for "adding of two numbers"
+#Approach1.py
+def addop(a,b): #here 'a' and 'b' are called Formal params
+    c=a+b # here 'c' is called Local Variable
+    return c
+
+#main Program
+res=addop(10,20) # Function Call--here 10 and 20 called Inputs
+print("sum=",res)
+res1=addop(100,200) # Function Call--here 100 and 200 called Inputs
+print("sum=",res1)
+
+
+
+#Function Def for "adding of two numbers"
+# INPUTS     :  Taking from function call
+# PROCESS    :  Done in Function Body
+# RESULT     :  Giving Result to Function call
+#ApproachEx1.py
+def addop(k,v): # Here 'k' and 'v' are called formal Parameters
+    r=k+v # Here 'r' is called local variable
+    return r
+
+#main Program
+a=float(input("Enter First Value:"))
+b=float(input("Enter Second Value:"))
+c=addop(a,b) # Function Call with Inputs and Gets result from Function Def
+print("Sum({},{})={}".format(a,b,c))
+print("---------------OR--------------------------")
+k=float(input("Enter First Value:"))
+v=float(input("Enter Second Value:"))
+r=addop(k,v) # Function Call with Inputs and Gets result from Function Def
+print("Sum({},{})={}".format(k,v,r))
+
+
+#Function Def for "adding of two numbers"
+# INPUTS     : Taking  in Function Body
+# PROCESS    : Done in Function Body
+# RESULT     : Displayed in Function Body
+#ApproachEx2.py
+def addop():
+    #Take Input
+    k=float(input("Enter First Value:"))
+    v=float(input("Enter Second Value:"))
+    #Do the Process
+    r=k+v
+    #Display the result in Function Body only
+    print("sum({},{})={}".format(k,v,r))
+
+#Main Program
+addop() # Function Call without Inputs
+
+
+
+#Function Def for "adding of two numbers"
+# INPUTS     : Taking  in Function Call
+# PROCESS    : Done in Function Body
+# RESULT     : Displayed in Function Body
+#ApproachEx3.py
+def addop(a,b):
+    c=a+b
+    print("Sum({},{})={}".format(a,b,c))
+
+
+#Main Program
+k=float(input("Enter First Value:"))
+v=float(input("Enter Second Value:"))
+addop(k,v) # function call with Inputs wihout getting result from Fun Def
+
+
+
+#Function Def for "adding of two numbers"
+# INPUTS     : Taking  in Function Body
+# PROCESS    : Done in Function Body
+# RESULT     : Giving Result to Function call
+#ApproachEx4.py
+def addop():
+    # Take Input
+    k = float(input("Enter First Value:"))
+    v = float(input("Enter Second Value:"))
+    #Do the Process
+    r=k+v
+    #give Result to function
+    return k,v,r
+
+#Main Program
+k,v,r=addop() # Function Call with Multi Line assignment
+print("sum({},{})={}".format(k,v,r))
+print("------------OR----------------------")
+res=addop()# Function Call with single Line assignment
+# Here res is of type <class, tuple>
+print("sum({},{})={}".format(res[0],res[1],res[2]))
+print("------------OR---------------------")
+print("sum({},{})={}".format(res[-3],res[-2],res[-1]))
+
+
+#FunTest.py
+#welcome("Rossum")------Gives NameError bcoz Function calls must be after Function Def.
+def welcome(name): # Function Def
+    print("\tHi {}, Welcome to functions".format(name))
+
+#main Program
+print("----------------------------------")
+print("Line-6: I am after Function Def")
+print("Type of welcome=",type(welcome))
+print("----------------------------------")
+welcome("Rossum") # Function Call
+welcome("Travis") # Function Call
+
+
+#RectAreaPeri.py
+def arearect():
+    L=float(input("Enter Length of Rect:"))
+    B = float(input("Enter Breadth of Rect:"))
+    ar=L*B
+    print("------------------------------------")
+    print("\tLength={}".format(L))
+    print("\tBreadth={}".format(B))
+    print("\tArea of Rect={}".format(ar))
+    print("------------------------------------")
+def perirect():
+    L = float(input("Enter Length of Rect:"))
+    B = float(input("Enter Breadth of Rect:"))
+    pr = 2*(L + B)
+    print("------------------------------------")
+    print("\tLength={}".format(L))
+    print("\tBreadth={}".format(B))
+    print("\tPerimeter of Rect={}".format(pr))
+    print("------------------------------------")
+
+#Main Program
+perirect() # function call
+print("-----------------------------")
+arearect() # function call
+
+
+
+#FunctionTypeWithValues.py--Most Imp
+def disp(a):
+    if(type(a)==int):
+        print(a,type(a))
+    elif(type(a)==float):
+        print(a,type(a))
+    elif(type(a)==bool):
+        print(a,type(a))
+    elif(type(a)==complex):
+        print(a,type(a))
+        print("\tReal part=",a.real)
+        print("\tImag Part=",a.imag)
+    elif(type(a)==str):
+        print(a,type(a))
+        print("Upper Value=",a.upper())
+    elif (type(a) == bytes):
+        print(a, type(a))
+    elif (type(a) == bytearray):
+        print(a, type(a))
+    elif (type(a) == range):
+        print(a, type(a))
+        for val in a:
+            print("\t{}".format(val))
+    elif (type(a) == list):
+        print(a, type(a))
+        for val in a:
+            print("\t{}".format(val))
+    elif (type(a) == tuple):
+        print(a, type(a))
+        for val in a:
+            print("\t{}".format(val))
+    elif (type(a) == set):
+        print(a, type(a))
+        for val in a:
+            print("\t{}".format(val))
+    elif (type(a) == frozenset):
+        print(a, type(a))
+        for val in a:
+            print("\t{}".format(val))
+    elif (type(a) == dict):
+        print(a, type(a))
+        for key,val in a.items():
+            print("\t{}-->{}".format(key,val))
+    else:
+        print(a, type(a))
+
+
+#main Program
+disp(10) # Function Call with int value
+disp(10.2) # Function Call with float value
+disp(True) # Function Call with bool value
+disp(2+3j) # Function Call with complex value
+print("----------------------------------------")
+disp("Python")# Function Call with str value
+disp(bytes([233,244,255,0,123,145]))
+disp(bytearray([233,244,255,0,123,145]))
+disp(range(10,21,2))
+print("----------------------------------------")
+disp([10,"RS",34.56,True])
+disp((10,"RS",34.56,True))
+print("----------------------------------------")
+disp({10,"RS",34.56,True})
+disp(frozenset({10,"RS",34.56,True}))
+disp({1:"Python",2:"C",3:"Java",4:"DSA"})
+print("----------------------------------------")
+disp(None)
+
+
+#MaxMinElementsEx1.py
+def getvals():
+    nov=int(input("Enter How Many Values u want:"))
+    if(nov<=0):
+        return [] # returning empty List
+    else:
+        lst=[]
+        for i in range(1,nov+1):
+            val=float(input("Enter {} Value:".format(i)))
+            lst.append(val)
+        return lst
+def findmax(lst): # lst=[3.0, 8.0, 1.2, 14.5, 7.88]
+    if(len(lst)==0):
+        print("List is empty-can't find max value")
+    else:
+        maxv=lst[0]
+        for i in range(1,len(lst)):
+            if(lst[i]>maxv):
+                maxv=lst[i]
+        else:
+            print("Given List=",lst)
+            print("Max Element=",maxv)
+
+def findmin(lst):
+    if(len(lst)==0):
+        print("List is empty-can't find min value")
+    else:
+        minv=lst[0]
+        for i in range(1,len(lst)):
+            if(lst[i]<minv):
+                minv=lst[i]
+        else:
+            print("Given List=", lst)
+            print("Min Element=", minv)
+
+#Main Program
+lst=getvals()
+findmax(lst) # Function Call
+findmin(lst) # Function Call
+
+
+
+#MaxMinElementsEx2.py
+def getvals():
+    nov=int(input("Enter How Many Values u want:"))
+    if(nov<=0):
+        return [] # returning empty List
+    else:
+        lst=[]
+        for i in range(1,nov+1):
+            val=float(input("Enter {} Value:".format(i)))
+            lst.append(val)
+        return lst
+def findmax(lst): # lst=[3.0, 8.0, 1.2, 14.5, 7.88]
+    if(len(lst)==0):
+        print("List is empty-can't find max value")
+    else:
+        maxv=lst[0]
+        for val in lst:
+            if(val>maxv):
+                maxv=val
+        else:
+            print("Given List=",lst)
+            print("Max Element=",maxv)
+
+def findmin(lst):
+    if(len(lst)==0):
+        print("List is empty-can't find min value")
+    else:
+        minv=lst[0]
+        for val in lst:
+            if(val<minv):
+                minv=val
+        else:
+            print("Given List=", lst)
+            print("Min Element=", minv)
+
+#Main Program
+lst=getvals()
+findmax(lst) # Function Call
+findmin(lst) # Function Call
+
+
+
+#MaxMinElementsEx3.py
+def getvals():
+    nov=int(input("Enter How Many Values u want:"))
+    if(nov<=0):
+        return [] # returning empty List
+    else:
+        lst=[]
+        for i in range(1,nov+1):
+            val=float(input("Enter {} Value:".format(i)))
+            lst.append(val)
+        return lst
+def findmax(lst): # lst=[3.0, 8.0, 1.2, 14.5, 7.88]
+    if(len(lst)==0):
+        print("List is empty-can't find max value")
+    else:
+        print("Given List=",lst)
+        print("Max Element=",max(lst))
+        print("--------OR--------------")
+        print("Max Element=", sorted(lst)[-1])
+def findmin(lst):
+    if(len(lst)==0):
+        print("List is empty-can't find min value")
+    else:
+        print("Given List=", lst)
+        print("Min Element=", min(lst))
+        print("--------OR--------------")
+        print("Min Element=", sorted(lst)[0])
+
+#Main Program
+lst=getvals()
+findmax(lst) # Function Call
+findmin(lst) # Function Call
+
+

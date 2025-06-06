@@ -1,0 +1,77 @@
+			=====================================================================
+				 Object Oriented  Principles or Features or Concepts in Python
+			======================================================================
+=>To say a Programming Language is Object Oriented then It has to satisfy the following Principles.
+			1. Classes
+			2. Objects
+			3. Data Encapsulation
+			4. Data Abstraction
+			5. Inheritance
+			6. Polymorphism
+			7. Message Passing (already discussed) 
+=>All the OOPs Princples are Same in all Object Oriented Programming Lang But whose Syntaxes Differs from One Object Oriented Programming Lang to Object Oriented Programming Lang.
+==========================================================================================
+
+				=================================================
+							1. Classes
+				=================================================
+=>The Purpose of Classes Concept is that "To Develop Programmer-Defined Data Type + To Develop Any Real Time
+     Application"
+=>The Need of Developing Programmer-Defined Data Type is that "To Store Customized Data + To Perform Customized 
+    Operations"
+=>To Develop Programmer-Defined Data Type by using Classes concept , we use 'class' keyword.
+=>Programatically, Every Class Name is Treated as Programmer-Defined Data Type.
+=>Every Program in Python must starts Class Concept. (i.e Without Classes concept, There is No Python Program)
+--------------------------------------------------
+Def. of Class
+--------------------------------------------------
+=>A Class is a Collection of Data Members and Methods (Functions in OOPs are called Methods).
+=>When we define a Class, There is no memory space is created for Data Members and Methods But whose Memory 
+    Space is created when we create an Object w.r.t Class Name.
+=>What are all the Data Members and Methods Available in the Class, which are appearing as it is as a Part of Object with memory space. So that Programmers can store the Data in Data Members of Object and Performs Operations on the Data Members of Object by using Methods.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+			=================================================================
+					Syntax for Defining the Class in Python
+			=================================================================
+To Define the Class in Python, we use the following Syntax:
+
+			class  <clsname>:
+				Class Level Data Members
+				def  InstanceMethodName(self, List of formal Params if any):
+					------------------------------------------------
+					Specify Instance Data Members
+					Performs Specific Operations
+					-----------------------------------------------
+				@classmethod
+				def  classlevelmethodname(cls, List of formal Params if any):
+					------------------------------------------------
+					Specify Class Level Data Members
+					Performs Common Operations
+					-----------------------------------------------
+				@staticmethod
+				def  staticmethodname(List of formal Params if any):
+					------------------------------------------------
+					Performs Universal / Utility Operations
+					-----------------------------------------------
+				def  __init__(self, list of formal params if any):
+					--------------------------------------------------
+					Performs Object Initlization
+					--------------------------------------------------
+				def  __del__(self):
+					--------------------------------------------------
+					Performs Object Memory Space De-Allocation 
+					--------------------------------------------------
+
+Hence   Class Contains
+
+				I. Data Members
+					1. Instance  Data Members
+					2. Class Level Data Members
+				II. Methods
+					1. Instance Methods
+					2. Class Level Methods
+					3. Static Methods
+				III. Constructors
+					1. Deafult Constructor
+					2. Parameterized Constructor
+				IV. Destructor

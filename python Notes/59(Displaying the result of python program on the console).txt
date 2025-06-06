@@ -1,0 +1,160 @@
+				=====================================================
+					Displaying the Result of Python Program on the Console
+				=====================================================
+=>To Display the Result of Python Program on the Console, we use a Pre-Defined Function called print().
+=>In Otherwords, print() is a Pre-defined Fuunction present in 'builtins' module and whose purpose is that to display the python program on the console.
+=>The print() can be used with 6 Syntxes.
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+syntax-1:		print(Value)
+				OR
+			print(Value1,Value2,.....,Value-n)
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+=>This Syntax displays either Single Value OR Multple Values
+-----------------
+Examples
+-----------------
+>>> a=10
+>>> print(a)------------------10
+>>> a=10
+>>> b=20
+>>> c=a+b
+>>> print(a,b,c)--------------10 20 30
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+syntax-2:			print(Msg)
+					OR
+				print(Msg1,Msg2,.....,Msg-n)
+					OR
+				print(Msg1+Msg2+.....+Msg-n)
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+=>Here Msg1,Msg2.....,Msg-n Represents List of Messages which are of type <class,'str'>
+=>This Syntax display Messages on the console
+-------------------------
+Examples
+--------------------------
+>>> print("Hello Python World")---------------Hello Python World
+>>> print("Hello",'Python',"World")----------Hello Python World
+>>> print("Hello"+"Python"+'world')--------HelloPythonworld
+>>> print("Hello"+" "+"Python"+' '+'world')------Hello Python world
+>>> print(str("Hello")+str("Python")+"World")-----HelloPythonWorld
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+syntax-3:			print(Value cum Message )
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+=>This Syntax display the Values Cum Messages.
+-------------------
+Examples
+-------------------
+>>>a=10
+>>> print("Val of a=",a)----------------------Val of a= 10
+>>> print(a," is the value of a")-----------10  is the value of a
+>>> print("Val of a="+a)------------------TypeError: can only concatenate str (not "int") to str
+>>> print("Val of a="+str(a))-------------Val of a=10
+>>> print(str(a)+" is the value of a")-----10 is the value of a
+--------------
+>>> a=10
+>>> b=20
+>>> c=a+b
+>>> print("sum=",c)-------------sum= 30
+>>> print(c,"is the sum")--------30 is the sum
+>>> print("Sum="+str(c))-------Sum=30
+>>> print(str(c)+"is the sum")----30is the sum
+>>> print("Sum of",a," and ",b,"=",c)-----------------Sum of 10  and  20 = 30
+>>> a=10
+>>> b=20
+>>> c=30
+>>> d=a+b+c
+>>> print("Sum of",a,b," and ",c,"=",d)----------------Sum of 10 20  and  30 = 60
+>>> print("Sum of",a,",",b," and ",c,"=",d)-----------Sum of 10 , 20  and  30 = 60
+>>> print("Sum(",a,",",b,",",c,")=",d)------------------Sum( 10 , 20 , 30 )= 60
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+syntax-4:	  print(Value cum Message with format())
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+=>This Syntax display the Values Cum Messages with format()
+=>format() supplies the values for {} (empty Curly brace(s) ) on First Cum First Serve Basis
+-------------------------
+Examples
+-------------------------
+>>> a=10
+>>> print("Val of a={}".format(a) )-------------Val of a=10
+>>> a=10
+>>> b=20
+>>> c=a+b
+>>> print("Sum of {} and {}={}".format(a,b,c))----------Sum of 10 and 20=30
+>>> print("Sum({},{})={}".format(a,b,c))------------------Sum(10,20)=30
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+syntax-5:	  print(f"{Val1},{Val2},.....{Val-n}")
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+=>This Syntax display the Values Cum Messages with a letter 'f'
+=>The letter 'f' supplies the values for {} (empty Curly brace(s) ) on First Cum First Serve Basis
+---------------------------
+Examples
+----------------------------
+>>>a=10
+>>> print(f"Val of a={a}")-------------------Val of a=10
+>>> a=10
+>>> b=20
+>>> c=a+b
+>>> print(f"Sum of {a} and {b}={c}")-------------Sum of 10 and 20=30
+>>> print(f"Sum({a},{b})={c}")--------------------Sum(10,20)=30
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+syntax-6: 	print(Value cum Message with format Specifier)	
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+=>This Syntax display the Values Cum Messages with  format Specifiers.
+=>Here , we have the following format Specifiers in Python.
+		=>%d Represents Integer Data
+		=>%f Represents Float Data
+		=>%s Represents str Data.
+=>In Any Value does not contain Format Specifier then that Value Must be converted into str type by using str() and 
+    use %s.
+------------------------
+Examples
+-------------------------
+>>>a=10
+>>> print("Val of a=%d" %a)--------------Val of a=10
+>>> a=10
+>>> b=20
+>>> c=a+b
+>>> print("Sum of %d and %d=%d" %(a,b,c))-------------Sum of 10 and 20=30
+>>> print("Sum of %f and %f=%f" %(a,b,c))---------Sum of 10.000000 and 20.000000=30.000000
+>>> print("Sum of %0.2f and %0.2f=%0.2f" %(a,b,c))---Sum of 10.00 and 20.00=30.00
+>>> print("Sum of %0.10f and %0.10f=%0.20f" %(a,b,c))
+			Sum of 10.0000000000 and 20.0000000000=30.00000000000000000000
+>>> a=12.34
+>>> b=34.56
+>>> c=a+b
+>>> print("Sum of %f and %f=%f" %(a,b,c))-------Sum of 12.340000 and 34.560000=46.900000
+>>> print("Sum of %0.2f and %0.2f=%0.2f" %(a,b,c))-----Sum of 12.34 and 34.56=46.90
+>>> a=2.3456
+>>> print("%f" %a)----------------------------2.345600
+>>> print("%0.2f" %a)------------------------2.35
+>>> a=2.3446
+>>> print("%0.2f" %a)------------------------2.34
+>>> sno=10
+>>> sname="RS"
+>>> marks=23.45
+>>> print("My Roll Number is %d and name is %s and marks is %f" %(sno,sname,marks))
+				My Roll Number is 10 and name is RS and marks is 23.450000
+>>> print("My Roll Number is %d and name is '%s' and marks is %f" %(sno,sname,marks))
+		My Roll Number is 10 and name is 'RS' and marks is 23.450000
+-------------------------------
+>>> lst=[10,"RS",34.56,True]
+>>> print("Content of lst=%d" %lst)----------------------TypeError: %d format: a real number is required, not list
+>>> print("Content of lst=%f" %lst)-----------------------TypeError: must be real number, not list
+>>> print("Content of lst=%s" %str(lst))-----------------Content of lst=[10, 'RS', 34.56, True]
+>>> d={10:1.2,20:3.4,30:1.2}
+>>> print("Content of d=%s" %str(d))-------------------Content of d={10: 1.2, 20: 3.4, 30: 1.2}
+>>> print("Content of d={}".format(d))------------------Content of d={10: 1.2, 20: 3.4, 30: 1.2}
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+syntax-7	 print(Value,end="delimeter")
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+=>This Syntax display the Value in same line
+------------------------
+Examples
+-------------------------
+r=range(10,21,2)
+for val in r:
+    print(val,end=" ")  #  10 12 14 16 18 20 
+
+r=range(10,21,2)
+for val in r:
+    print(val,end="->") # 10->12->14->16->18->20->
+------------------------------------------------------------------------------------------------------------------------------------------------------------

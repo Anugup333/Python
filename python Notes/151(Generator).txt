@@ -1,0 +1,154 @@
+			=================================
+				generator in python
+			=================================
+=>generator is one of the function
+=>The generator function always contains yield keyword
+=>If the function contains return statement then it is called Normal Function. Here return 
+     statement of function can return More Number of Values if required
+=>If the function contains yield keyword then it is called generator. Here yield statement 
+    returns the value only on demand and reduces the memory space.
+=>Syntax:
+		def   function_name(start,stop,step):
+		        ----------------------------------------
+			----------------------------------------
+			yield value
+			----------------
+=>The 'yield' key word is used for giving the value back to function call from function defintion and continue the function execution until condition becomes false.
+=>The advantage of generators over functions concept is that it save lot of memory space in the case large sampling of data. In otherwords Functions gives all the result at once and it take more memory space where as generators gives one value at a time when programmer requested and takes minimized memory space.
+=>On the object of generator, we can't perform Indexing and Slicing Operations bcoz They supply the value only on demand.
+----------------------------------------------------------------------------------------
+Writing Memory Efficient Programs Using Generators in Python
+----------------------------------------------------------------------------------------
+When writing code in Python, wise use of memory is important, especially when dealing with large amounts of data. One way to do this is to use Python generators. Generators are like special functions that help to save memory by processing data one at a time, rather than all at once.
+
+The logic behind memory efficient functions and Python generators is to create functions that generate values ​​on the fly, avoiding the need to store the entire data set in memory. This is especially useful when dealing with large data sets.
+============================X===============================================================
+
+
+#Program for Demonstrating generator
+#GenEx1.py
+import sys
+def  kvrrange(n):
+	i=0
+	while(i<=n):
+		yield i
+		i=i+1
+
+#Main Program
+x=kvrrange(6)
+print("type of kvrrange=",type(kvrrange)) # <class, 'function'>
+print("Type of x=",type(x)) # <class,'generator'>
+print("------------------------------------------------------------------------")
+#To get the Values from generator--we must make request by using a Function called next(generatorobj)
+try:
+	print(next(x))
+	print(next(x))
+	print(next(x))
+	print(next(x))
+	print(next(x))
+	print(next(x))
+	print(next(x))
+	print(next(x))
+except StopIteration:
+	print("------------------------------------------------------------------------")
+	sys.exit()
+
+
+#Program for Demonstrating generator
+#GenEx3.py
+def  kvrrange(n):
+	i=0
+	while(i<=n):
+		yield i
+		i=i+1
+
+#Main Program
+x=kvrrange(6)
+print("type of kvrrange=",type(kvrrange)) # <class, 'function'>
+print("Type of x=",type(x)) # <class,'generator'>
+print("------------------------------------------------------------------------")
+#To get the Values from generator--we must make request by using a Function called next(generatorobj)
+for val in x:
+	print("\t{}".format(val))
+print("------------------------------------------------------------------------")
+
+
+#Program for Demonstrating generator
+#GenEx4.py
+def  kvrrange(Start,Stop):
+	while(Start<=Stop):
+		yield Start
+		Start=Start+1
+
+
+#Main Program
+x=kvrrange(10,16)
+print("type of kvrrange=",type(kvrrange)) # <class, 'function'>
+print("Type of x=",type(x)) # <class,'generator'>
+print("------------------------------------------------------------------------")
+#To get the Values from generator--we must make request by using a Function called next(generatorobj)
+for val in x:
+	print("\t{}".format(val))
+print("------------------------------------------------------------------------")
+y=kvrrange(100,110)
+print("type of kvrrange=",type(kvrrange)) # <class, 'function'>
+print("Type of y=",type(y)) # <class,'generator'>
+print("------------------------------------------------------------------------")
+#To get the Values from generator--we must make request by using a Function called next(generatorobj)
+for val in y:
+	print("\t{}".format(val))
+print("------------------------------------------------------------------------")
+
+
+#Program for Demonstrating generator
+#GenEx5.py
+def  kvrrange(Start,Stop,Step):
+	while(Start<=Stop):
+		yield Start
+		Start=Start+Step
+
+
+#Main Program
+x=kvrrange(10,20,2)
+for val in x:
+	print("\t{}".format(val))
+
+#Program for Demonstrating generator
+#GenEx5.py
+def  kvrrange(Start=1,Stop=1,Step=1):
+	if(Start>Stop):
+		Stop=Start
+		Start=1
+	
+	while(Start<=Stop):
+		yield Start
+		Start=Start+Step
+
+#Main Program
+x=kvrrange(5)
+for val in x:
+	print("\t{}".format(val))
+print("-----------------------------------------------------------")
+y=kvrrange(10,20)
+for val in y:
+	print("\t{}".format(val))
+print("-----------------------------------------------------------")
+z=kvrrange(10,100,10)
+for val in z:
+	print("\t{}".format(val))
+print("-----------------------------------------------------------")
+
+
+#Program for Demonstrating generator
+#GenEx5.py
+def  getcourses():
+	yield "PYTHON"
+	yield "HTML"
+	yield "Django"
+	yield  "MongoDB"
+#Main Program
+cg=getcourses()
+print(next(cg))
+print(next(cg))
+print(next(cg))
+print(next(cg))

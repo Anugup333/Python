@@ -1,0 +1,40 @@
+                                        ===============================================
+								2. float
+					===============================================
+
+=>Here 'float' is one of the Pre-Defined Class and treated as Fundamental Category Data Type.
+=>The purpose of float is that "To store Real Constant Values OR Floating Point Values (contains Values with decimal places)" such as Percentages, Percentile,...etc
+=>The float data type can also use to store Scientific Notation Data.
+=>The General Notation Scientific  Data is "Mantisa e  Exponent".
+=>The Eqv. Floating  Point Value is "Mantisa x 10 to the power of expoent"
+=>The Advantange of Floating point Values in Scientific Notation is that "To Takes Less Memory Space".
+=>With float data type, we can't Directly Represent Binary, Octal and Hexa Decimal Value. We have Use only decimal 
+    Values with float data type.
+
+-------------------------
+Examples
+-------------------------
+>>> a=3.4
+>>> print(a,type(a))------------------------------3.4 <class 'float'>
+>>> a=0.99
+>>> print(a,type(a))-----------------------------0.99 <class 'float'>
+-------------------------------
+>>> a=2.3
+>>> b=3.4
+>>> c=a+b
+>>> print(a,type(a))---------------2.3 <class 'float'>
+>>> print(b,type(b))--------------3.4 <class 'float'>
+>>> print(c,type(c))---------------5.699999999999999 <class 'float'>
+---------------------------------------------------------
+>>> a=3e2
+>>> print(a,type(a))-----------------------300.0 <class 'float'>
+
+>>> a=10e-3
+>>> print(a,type(a))-----------------------0.01 <class 'float'>
+>>> a=0.00000000000000000000000000000000000000000000000000000000000003
+>>> print(a,type(a))------------------------3e-62 <class 'float'>
+-----------------------------------------------------------------------------
+>>> a=0b1111.0b1010-------------------SyntaxError: invalid decimal literal
+>>> a=0b1010.0xbee--------------------SyntaxError: invalid decimal literal
+>>> a=0o12.0xac-------------------------SyntaxError: invalid decimal literal
+-----------------------------------------------------------------------------------------------------------------------------------

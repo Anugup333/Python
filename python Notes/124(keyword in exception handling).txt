@@ -1,0 +1,39 @@
+			==========================================================
+					Handling the Exceptions
+							OR
+				Keywords for Handling the Exceptions
+			==========================================================
+=>Handling the Exceptions are nothing but converting Techincal Error Message into User-Friendly Error Messages.
+=>For Handling the Exceptions, we have 5 Key words. They are
+
+					1. try
+					2. except
+					3. else
+					4. finally
+					5. raise
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+Syntax for Handling the exceptions
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+				try:	
+				     Block of Statements
+				     Generates Exceptions
+				except <exception-class-name-1>:
+					Block of statements
+					Generates User-Friendly Error Message
+				except <exception-class-name-2>:
+					Block of statements
+					Generates User-Friendly Error Message
+				--------------------------------------
+				--------------------------------------
+				except <exception-class-name-n>:
+					Block of statements
+					Generates User-Friendly Error Message
+				else:
+					Block of statements
+					displays Result
+				finally:
+					Block of Statements 
+					executes Compulsorily
+				
+----------------------------------------------------------------------------------------------------------------------------------------------------------

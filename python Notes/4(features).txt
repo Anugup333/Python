@@ -1,0 +1,19 @@
+				==============================================
+						Features of PYTHON Programming
+				==============================================
+=>The Features of Programming Language are nothing SERVICES or FACILITIES Provided Language Developer in 
+    Programming Languages and they are Used by Programmers for Developing  Real Time Applications.
+=>Python Programming Language Provides 11  Features. They are
+
+				1.  Simple 
+				2.  Platform Independent 
+				3.  Dynamically Typed 
+				4.  Interpreted 
+				5.  High Level 
+				6.  Robust (Strong)
+				7.  Extensible 
+				8.  Embedded 
+				9.  Freeware and Open Source
+				10. Supports Third Party Modules such as numpy,pandas, matplotlib..etc
+				11. Functional and Object Oriented 
+==================================================x=========================================

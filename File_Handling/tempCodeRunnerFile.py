@@ -1,0 +1,1 @@
+print("Expenses of last six months: ",sum)

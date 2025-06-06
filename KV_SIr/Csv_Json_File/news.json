@@ -1,0 +1,34 @@
+[   {
+      "id": 1,
+      "title": "New AI Model Breaks Accuracy Records",
+      "category": "Technology",
+      "author": "John Doe",
+      "date": "2025-04-10",
+      "content": "A breakthrough in AI technology was achieved today with a new model achieving state-of-the-art results."
+    },
+    {
+      "id": 2,
+      "title": "Champions League Final Set for Exciting Clash",
+      "category": "Sports",
+      "author": "Jane Smith",
+      "date": "2025-04-09",
+      "content": "The two top teams in Europe will face off in this year's Champions League final."
+    },
+    {
+      "id": 3,
+      "title": "Elections 2025: Campaigns Gain Momentum",
+      "category": "Politics",
+      "author": "Amit Sharma",
+      "date": "2025-04-08",
+      "content": "As the elections approach, political parties intensify their campaigns across the country."
+    },
+    {
+      "id": 4,
+      "title": "Top 5 Upcoming Movies This Summer",
+      "category": "Entertainment",
+      "author": "Riya Kapoor",
+      "date": "2025-04-07",
+      "content": "Here's a list of the most anticipated movies to watch out for this summer."
+    }
+  ]
+  

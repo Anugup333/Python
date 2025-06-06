@@ -1,0 +1,280 @@
+#Program for Getting the Connection from MYSQL
+#MySQLConnTest1.py
+import mysql.connector
+con=mysql.connector.connect(host="localhost",
+                    user="root",
+                    passwd="root")
+print("Python Program Got connection from MYSQL DB")
+
+#Program for Getting the Connection from MYSQL
+#MySQLConnTest2.py
+import mysql.connector
+con=mysql.connector.connect(host="127.0.0.1",
+                    user="root",
+                    passwd="root")
+print("Python Program Got connection from MYSQL DB")
+
+#Python Program obtains the connection from MySQL
+#MySQLConnTestEx1.py
+import mysql.connector
+try:
+	print("Hello")
+	con=mysql.connector.connect(host="127.0.0.1",user="root",passwd="root")
+	print("Python Program Got connection from MySQL")
+except mysql.connector.DatabaseError as db:
+    print("Problem with MySQL:",db)
+
+#Program for Creating the Database on the name of "batch11am"
+#MySQLDatabaseCreateEx.py
+import mysql.connector
+def createdb():
+    try:
+        con=mysql.connector.connect(host="localhost",
+                                    user="root",
+                                    passwd="root")
+        cur=con.cursor()
+        #create a Database on the name of "batch11am"
+        dc="create database KVR"
+        cur.execute(dc)
+        print("database created in mysql--verify")
+    except mysql.connector.DatabaseError as db:
+        print("Problem in MYSQL: ",db)
+
+#Main Program
+createdb()
+
+#Program for Droping the Data from MySQL
+#MySQLDropDatabaseEx.py
+import mysql.connector
+def dropdb():
+    try:
+        con=mysql.connector.connect(host="localhost",
+                                    user="root",
+                                    passwd="root")
+        cur=con.cursor()
+        #drop a Database from MYSQL"
+        cur.execute("drop database batch4pm")
+        print("database droped from mysql--verify")
+    except mysql.connector.DatabaseError as db:
+        print("Problem in MYSQL: ",db)
+
+#Main Program
+dropdb()
+
+#Program for Deleting the Record from Employee Table based on Emp Number
+#MySQLRecordDeleteEx.py
+import mysql.connector as orc
+def deleterecord():
+    while(True):
+        try:
+            con = orc.connect(host="localhost",
+                                user="root",
+                                passwd="root",
+                                database="batch11am")
+            cur=con.cursor()
+            print("-----------------------------------------------")
+            empno=int(input("Enter Employee Number to delete a Record:"))
+            cur.execute("delete from employee where eno=%d" %empno)
+            con.commit()
+            if(cur.rowcount>0):
+                print("{} Record Deleted".format(cur.rowcount))
+            else:
+                print("Record does not Exist")
+            print("-----------------------------------------------")
+            ch = input("Do u want to Delete Another Record(yes/no):")
+            if (ch.lower() == "no"):
+                print("Thx for Using This Program")
+                break
+        except orc.DatabaseError as db:
+            print("Problem with MySQL DB:",db)
+        except ValueError:
+            print("Don't enter alnums, strs and symbols-try again")
+
+#Main Program
+deleterecord() # Function Call
+
+
+#Program for reading the Values from KBD and Insert then as Record in Employee Table
+#MySQLRecordInsertEx.py
+import mysql.connector
+#Programmere-Defined Exceptions
+class InvalidNameError(Exception):pass
+class SpaceError(Exception):pass
+class ZeroLengthNameError(Exception):pass
+# Hitting the Programmere-Defined Exceptions
+def validate(name:str): #name=123Guido Van Rossum
+    if(len(name)==0):
+        raise ZeroLengthNameError
+    elif(name.isspace()):
+        raise SpaceError
+    else:
+        words=name.split() # words=['123Guido','Van','Rossum']
+        res=True
+        for word in words:
+            if(not word.isalpha()):
+                res=False
+                break
+        if(res):
+            return name
+        else:
+            raise InvalidNameError
+#We are Defining Our Function for  Handling the Exceptions.
+def recordinsert():
+    while(True):
+        try:
+            con = mysql.connector.connect(host="localhost",
+                                          user="root",
+                                          passwd="root",
+                                          database="batch11am")
+            cur = con.cursor()
+            #read emp values from KBD
+            print("--------------------------------------")
+            eno=int(input("Enter Employee Number:"))
+            ename=validate(input("Enter Employee Name:"))
+            empsal = float(input("Enter Employee Salary:"))
+            compname = validate(input("Enter Employee Comp Name:"))
+            print("--------------------------------------")
+            #iq = "insert into employee values(%d,'%s',%f,'%s')"
+            #cur.execute(iq %(eno,ename,empsal,compname))
+            #OR
+            cur.execute("insert into employee values(%d,'%s',%f,'%s')" %(eno,ename,empsal,compname) )
+            con.commit()
+            print("{} Record Inserted in Table--verify".format(cur.rowcount))
+            print("--------------------------------------")
+            ch=input("Do u want to Insert Another Record(yes/no):")
+            if(ch.lower()=="no"):
+                print("Thx for Using This Program")
+                break
+        except mysql.connector.DatabaseError as db:
+            print("Problem in MySql database:",db)
+        except ValueError:
+            print("Don't alnums, strs and symbols for empno and salary")
+        except InvalidNameError:
+            print("\tInvalid Emp Name / Comp Name--try again")
+        except SpaceError:
+            print("\tDon't Give Space for Emp Name / Comp Name--try again")
+        except ZeroLengthNameError:
+            print("\tU Must Enter Ur Name / Comp Name-try again")
+#Main Program
+recordinsert()
+
+#Program for Updating the empsal, comp name based on employee number
+#MySQLRecordUpdateEx.py
+import mysql.connector as nit
+def recordupdate():
+    while(True):
+        try:
+            con = nit.connect(host="localhost",
+                              user="root",
+                              passwd="root",
+                              database="batch11am")
+            cur = con.cursor()
+            #Get the employee Number, New Sal and New Comp Name
+            print("--------------------------------------------")
+            empno=int(input("Enter Employee Number:"))
+            newsal=float(input("Enter Employee New Salary for Updating:"))
+            newcompname=input("Enter Employee New Comp Name:")
+            print("--------------------------------------------")
+            uq="update employee set sal= %f, compname='%s' where eno=%d"
+            cur.execute(uq %(newsal,newcompname,empno))
+            con.commit()
+            if(cur.rowcount>0):
+                print("{} Record Updated--verify".format(cur.rowcount))
+            else:
+                print("Employee Record does not Exist")
+            print("--------------------------------------------")
+            ch = input("Do u want to Update Another Record(yes/no):")
+            if (ch.lower() == "no"):
+                print("Thx for Using This Program")
+                break
+        except nit.DatabaseError as db:
+            print("Problem in MySQL database:",db)
+        except ValueError:
+            print("Don't enter alnums, strs and symbols-try again")
+#Main Program
+recordupdate()
+
+#Program for Reading the Records from Employee Table
+#MySQLSelectRecordsEx.py
+import mysql.connector as orc
+def selectrecord():
+    try:
+        con = orc.connect(host="localhost",
+                              user="root",
+                              passwd="root",
+                              database="batch11am")
+        cur=con.cursor()
+        sq="select * from employee"
+        cur.execute(sq)
+        #get the Records from cursor object by using fetchone()
+        print("------------------------------------------------")
+        print("\t\tList of Records")
+        print("------------------------------------------------")
+        records=cur.fetchall()
+        for record in records:
+            for val in record:
+                print("\t{}".format(val),end="\t")
+            print()
+        print("------------------------------------------------")
+    except orc.DatabaseError as db:
+        print("Problem with MySQL DB:",db)
+
+#Main Program
+selectrecord()
+
+
+#Program for Getting Records along with Column Names for Of Table
+#MySQLSelectRecordsWithColNamesEx.py
+import mysql.connector as orc
+def getrecordswithcolnames():
+    try:
+        con = orc.connect(host="localhost",
+                          user="root",
+                          passwd="root",
+                          database="batch11am")
+        cur = con.cursor()
+        sq = "select * from employee order by name "
+        cur.execute(sq)
+        #Code for Getting the Col Names
+        print("-"*50)
+        colinfo=cur.description # Here type of colinfo is list
+        #Here description is an attribute which is used for Getting the Colnames of Table
+        for column in colinfo:
+            print(column[0],end="\t\t")
+        print()
+        print("-" * 50)
+        #Code for Getting the Records
+        records=cur.fetchall()
+        for record in records:
+            for val in record:
+                print("{}".format(val),end="\t\t")
+            print()
+        print("-" * 50)
+    except orc.DatabaseError as db:
+        print("Problem with MYSQL DB:", db)
+
+#Main Program
+getrecordswithcolnames()
+
+
+#Program for Creating a Table Employee in MYSQL
+#MySQLTableCreateEx.py
+import mysql.connector
+def tablecreate():
+    try:
+        con=mysql.connector.connect(host="localhost",
+                                    user="root",
+                                    passwd="root",
+                                    database="batch11am")
+        cur=con.cursor()
+        #Create table employee
+        tc="create table student(sno int primary key,name varchar(10) not null,marks float not null)"
+        cur.execute(tc)
+        print("Table Created in MySQL--verify")
+    except mysql.connector.DatabaseError as db:
+        print("Problem in MYSQL: ",db)
+
+#Main Program
+tablecreate()
+
+

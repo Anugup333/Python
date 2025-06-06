@@ -1,0 +1,71 @@
+				==================================================
+						Special Functions in Python
+				==================================================
+=>In Python Programming, we have 3 Special Functions. They are
+
+				1. filter()
+				2. map()
+				3. reduce()
+=============================================================================================
+
+
+		=========================================================
+						1. filter()
+		=========================================================
+=>filter() is used for  "Filtering out some elements from list of elements by applying to function".
+=>Syntax:-        varname=filter(FunctionName, Iterable_object)
+---------------------
+Explanation:
+---------------------
+=>here 'varname' is an object of type <class,'filter'> and we can convert into any iteratable object by using type 
+   casting functions.
+=>"FunctionName" represents either Normal function or anonymous functions.
+=>"Iterable_object" represents Sequence, List, set and dict types.
+=>The execution process of filter() is that  " Each Value of Iterable object sends to Function Name. If the function
+ return True then the element will be filtered. if the Function returns False then that element will be neglected/not
+ filtered ". This process will be continued until all elements of Iterable object completed".
+----------------------------------------------------------------------------------------------------------------------
+Examples:
+#Program for Filtering +ve Values from List of Values
+#FilterEx1.py
+def pos(val):
+    if(val>0):
+        return True
+    else:
+        return False
+#main Program
+print("Enter List of Values  Separated by Space")
+lst=[float(val) for val in input().split()]
+x=filter(pos,lst) # here pos is a normal function
+# Here x is an object of <class 'filter'> and convert it into list type
+pslist=list(x)
+print("Given List of Values=",lst)
+print("+Ve Values=",pslist)
+
+
+#Program for Filtering +ve Values from List of Values
+#FilterEx2.py
+pos=lambda val: val>0
+#main Program
+print("Enter List of Values  Separated by Space")
+lst=[float(val) for val in input().split()]
+pslist=tuple(filter(pos,lst)) # here pos is a Anonymous function
+print("Given List of Values=",lst)
+print("+Ve Values=",pslist)
+
+
+#Program for Filtering +ve Values from List of Values
+#FilterEx3.py
+print("Enter List of Values  Separated by Space")
+lst=[float(val) for val in input().split()]
+pslist=tuple(filter(lambda val:val>0,lst)) # here pos is a Anonymous function
+print("Given List of Values=",lst)
+print("+Ve Values=",pslist)
+
+
+#Program for Filtering Alphabets from Line of Text
+#FilterEx4.py
+line=input("Enter Line of Text:") # Pyt9hon i#s an oop"
+alphabets=list(filter(lambda ch:ch.isalpha(),line))
+print("List of Alphabets from Gien Line")
+print("".join(alphabets))

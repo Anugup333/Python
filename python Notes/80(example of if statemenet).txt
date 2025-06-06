@@ -1,0 +1,39 @@
+#Moviee.py
+tkt=input("Do u have a Ticket(yes/no):").lower()
+if(tkt=="yes"):
+    print("Enter into theater")
+    print("Enjoy the moviee")
+    print("Understand the message")
+print("Goto Home and read Python Notes")
+
+
+#Program for Deciding weather the Given Number +Ve or -Ve or Zero
+#SimpleInStmtEx1.py
+n=float(input("Enter a Number:")) # n--- 123
+if(n>0):
+    print("{} is +VE Value".format(n))
+if(n<0):
+    print("{} is -VE Value".format(n))
+if(n==0):
+    print("{} is ZERO".format(n))
+print("Program Execution Completed!")
+
+
+#Program for Deciding weather the Given Value is Palindrome or not
+#SimpleInStmtEx2.py
+value=input("Enter a Value:").lower() # PYTHON
+if(value==value[::-1]):
+    print("{} is Palindrome".format(value))
+if(value!=value[::-1]):
+    print("{} is Not Palindrome".format(value))
+
+
+#Program for accepting a Numerical +ve value and decide whether It is Even OR Odd
+#SimpleInStmtEx3.py
+n=float(input("Enter a Numerical value:"))
+if(n<=0):
+    print("\t{} Invalid Input".format(n))
+if (n>0) and (n%2==0):
+    print("\t{} is Even Number:".format(n))
+if(n>0) and (n%2!=0):
+    print("\t{} is Odd Number:".format(n))

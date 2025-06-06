@@ -1,0 +1,80 @@
+				=================================================================
+					Module Name Required For Developing Thread Based Applications
+				=================================================================
+=>The Module Name Required For Developing Thread Based Applications is "threading".
+=>The 'threading' module contains Global Variable Names, Function Names and Class Names.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+			Module Name :  threading
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+Functions
+****************************************
+1. current_thread() :  This function is used for Obtaing the Name of the thread which is currently executing
+				    Syntax:    varname=threading.current_thread().name
+				    Here 'name' is one of the Pre-Defined Attribute in Threading
+
+2. active_count()  : This Function is used for Obtaing Number of active threads (Running threads)
+					Syntax:   varname=threading.active_count()	
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+		Class Name-1:   Thread
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+1. Thread(target,args):   Syntax:   varname=threading.Thread(target=Function/Method Name, args=(Val1,Val2,...,Val-n))
+					 This Constructor is used for Initlizing the Sub Thread in such way that sub thread must execute the target function by carring the args value provided Function Takes Parameter(s).
+					 =>In simple words, the above syntax , create sub threads.
+					Examples:   t1=threading.Thread(target=welcome)
+							    t2=threading.Thread(target=square,args=([10,20,30,40],) )
+				here t1 and t2 are called sub threads
+**************************************************
+2. start():			Syntax:   SubThread1.start()
+							SubThread2.start()
+							--------------------------
+							SubThread-n.start()
+				This Method is used for Dispatching the sub thread(s) to the Target Function.
+**************************************************
+3. setName(str)  :   subthreadobj.setName("User-Friendly Name to sub Thread")
+4. getName()       :   varname=subthreadobj.getName()
+				Here setName() and getName() are deprecated in Present Version.
+				These Methods are deprecated on the name of 'name' attribute.
+				Alternative Syntax: 
+				----------------------------
+						subthreadobj.name="User-Friendly Name to sub Thread" # Setting name of the thread
+						subthreadobj.name   # Getting the name of the thread.
+**************************************************
+5. is_alive()	: Syntax:  subthreadobj.is_alive()
+			This is used for Checking the Execution status of Sub Threads.
+			This Function returns True Provided the subthread is under execution
+			This Function returns False Provided the subthread is Not under execution
+**************************************************
+6. join() :  
+**************************************************
+=>This Function is used for Making the sub threads to join with MainThread after their completion.
+>Syntax:		subthreadobj1.join()
+			subthreadobj2.join()
+			-----------------------------
+			-----------------------------
+			subthreadobj-n.join()
+**************************************************
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+				===========================================================
+					Number of Approaches to Develop Thread Based Applications
+				===========================================================
+=>In Python Programming, we have Two Approaches to Develop Thread Based Applications. They are
+
+			1. By using Functional Programming.
+			2. By using Object Oriented Programming.
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+1. By using Functional Programming.
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+Step-1: import threading module and Other Modules if Required
+Step-2: Define Programmer-Defined Function(s), where It Contains Logic to be executed by Sub Thread(s)
+Step-3: Create Sub Thread(s)
+Step-4: Dispatch the sub threads by using start().
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+2. By using Object Oriented Programming.
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+Step-1: import threading module and Other Modules if Required
+Step-2: Define Programmer-Defned Class
+Step-3: Define Programmer-Defined Method(s), where It Contains Logic to be executed by Sub Thread(s)
+Step-4: Create Sub Thread(s)
+Step-5: Dispatch the sub threads by using start().
+-------------------------------------------------------------------------------------------------------------------------------------------------------

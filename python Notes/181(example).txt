@@ -1,0 +1,82 @@
+#ConvertStrDateIntoDate.py
+from datetime import datetime
+date_str1 = "2023-08-25"
+date_str2 = "2023-08-20"
+
+datetime1 = datetime.strptime(date_str1, "%Y-%m-%d")
+datetime2 = datetime.strptime(date_str2, "%Y-%m-%d")
+print("Date={} Type={}".format(datetime1,type(datetime1)))
+print("Date={} Type={}".format(datetime2,type(datetime1)))
+difference = datetime1 - datetime2
+print(difference)
+
+#ConvertStrDateIntoDateSecond.py
+from datetime import datetime
+date_str1 = "2023-08-25"
+date_str2 = "2023-08-24"
+
+datetime1 = datetime.strptime(date_str1, "%Y-%m-%d")
+datetime2 = datetime.strptime(date_str2, "%Y-%m-%d")
+print("Date={} Type={}".format(datetime1,type(datetime1)))
+print("Date={} Type={}".format(datetime2,type(datetime1)))
+difference = datetime1 - datetime2
+print(difference.total_seconds())
+
+#CustomizedData.py
+from datetime import datetime
+now = datetime.now() # current date and time
+year = now.strftime("%Y")
+print("year:", year)
+month = now.strftime("%m")
+print("month:", month)
+day = now.strftime("%d")
+print("day:", day)
+print("--------------------------------------------------")
+time = now.strftime("%H:%M:%S")
+print("time:", time)
+print("--------------------------------------------------")
+date_time = now.strftime("%m/%d/%Y, %H:%M:%S")
+print("date and time:",date_time)	
+print("--------------------------------------------------")
+date_time = now.strftime("%d/%m/%Y, %H:%M:%S")
+print("date and time:",date_time)	
+print("--------------------------------------------------")
+date_time = now.strftime("%d-%m-%Y")
+print("date :",date_time)	
+
+#Finding the Diff between Two date interms of Years, Months and days, Hours , Mins and seconds
+#DateDiffInYearsMonthsDays.py
+from datetime import datetime
+from dateutil.relativedelta import relativedelta
+
+start_time = datetime(2022, 4, 28, 12, 0, 0)
+end_time = datetime(2023, 10, 1, 8, 15, 25)
+
+# Calculate the difference
+time_diff = relativedelta(end_time, start_time)
+
+# Display the result
+print("Years:", time_diff.years)      # Output: Years: 1
+print("Months:", time_diff.months)    # Output: Months: 5
+print("Days:", time_diff.days)        # Output: Days: 2
+print("Hours:", time_diff.hours)      # Output: Hours: 20
+print("Minutes:", time_diff.minutes)  # Output: Minutes: 15
+print("Seconds:", time_diff.seconds)  # Output: Seconds: 25
+
+#This Program converts Date into str format
+#DateintoStrFmt.py
+from datetime import date
+# calling the today function of date class
+today = date.today()
+print("Today date={}  Type={}".format(today,type(today)))
+# Converting the date to the string
+StrDate = date.isoformat(today)
+print("Today date in str={}  Type={}".format(StrDate,type(StrDate)))
+
+#--------------------------------------------------------------------------
+#Example:  Create a date object:
+#--------------------------------------------------------------------------
+#DateTimeCreateEx.py
+import datetime
+x = datetime.datetime(2020, 5, 17)
+print(x) # 2020-05-17 00:00:00

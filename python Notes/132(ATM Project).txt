@@ -1,0 +1,80 @@
+#ATMExceptions.py<---Main Program
+class DepositError(Exception):pass
+class WithdrawError(BaseException):pass
+class InSuffFundError(Exception):pass
+
+
+#ATMMenu.py<----File Name and Module Name
+def menu():
+    print("*"*50)
+    print("\tATM OR FUNDS TRANSFER APP")
+    print("*" * 50)
+    print("\t1.Deposit")
+    print("\t2.Withdraw")
+    print("\t3.Bal Enq")
+    print("\t4.Exit")
+    print("*" * 50)
+
+#ATMOperationDemo.py<---Main Program
+from ATMMenu import menu
+from ATMExceptions import DepositError,WithdrawError,InSuffFundError
+from BankOperations import deposit,withdraw,balenq
+while(True):
+    menu()
+    try:
+        ch=int(input("Enter UR Choice:"))
+        match(ch):
+            case 1:
+                try:
+                    deposit()
+                except DepositError:
+                    print("\tDon't try to Deposit -VE / Zero Amount")
+                except ValueError:
+                    print("\tDon't try to Deposit Alnums,strs and symbols")
+            case 2:
+                try:
+                    withdraw()
+                except WithdrawError:
+                    print("\tDon't try to withdraw -VE / Zero Amount")
+                except InSuffFundError:
+                    print("\tUR Account does not have Suff Funds--Read Python Notes")
+                except ValueError:
+                    print("\tDon't try to Withdraw Alnums,strs and symbols")
+            case 3:
+                balenq()
+            case 4:
+                print("Thx for this Application")
+                break
+            case _:
+                print("UR Selection of Operation is Wrong-try again")
+    except ValueError:
+        print("\tDon't Enter Alnums,strs and symbols for Choice--try again")
+
+
+#BankOperations.py<---File Name and Module Name
+from ATMExceptions import WithdrawError,InSuffFundError,DepositError
+bal=500.00 # here bal is call Global Variable
+def deposit():
+    damt=float(input("Enter Ur Deposit Amount:")) # there is a possibility of getting ValueError
+    if(damt<=0):
+        raise DepositError
+    else:
+        global bal
+        bal=bal+damt
+        print("\tUR Account xxxxxxxx123 Credited with INR:{}".format(damt))
+        print("\tNow Available Balance in xxxxxxxx123 INR:{}".format(bal))
+def withdraw():
+    global bal
+    wamt=float(input("Enter UR Withdraw Amount:")) # there is a possibility of getting ValueError
+    if(wamt<=0):
+        raise WithdrawError
+    elif((wamt+500)>bal):
+        raise InSuffFundError
+    else:
+        bal=bal-wamt
+        print("\tUR Account xxxxxxxx123 Debitted with INR:{}".format(wamt))
+        print("\tNow Available Balance in xxxxxxxx123 INR:{}".format(bal))
+def balenq():
+    print("\tAvailable Balance in UR xxxxxxxx123 INR:{}".format(bal))
+
+

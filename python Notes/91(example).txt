@@ -1,0 +1,141 @@
+#BaseConversioncal.py
+while(True):
+    s="""-------------------------------------------------------------------
+                                 Base Conversion Calculator
+    ---------------------------------------------------------------------
+                            1.   D to B
+                                 D to O
+                                 D to H
+                            2.   B to D
+                                 B to O
+                                 B to H
+                            3.   O to D
+                                 O to B
+                                 O to H
+                            4.   H to D
+                                 H to B
+                                 H to O
+                            5. Exit
+    -----------------------------------------------------------------------"""
+    print(s)
+    ch=int(input("Enter Ur Choice:"))
+    match(ch):
+        case 1:
+            dv=int(input("Enter the Decimal Number System Data:"))
+            bv=bin(dv)
+            ov=oct(dv)
+            hv=hex(dv)
+            print("\tDeciaml Number System Value=",dv)
+            print("\tBinary Number System Value=",bv)
+            print("\tOctal Number System Value=", ov)
+            print("\tHexa Decimal Number System Value=", hv)
+        case 2:
+            bv =input("Enter the Binary Number System Data preceded with 0b OR 0B:")
+            dv=int(bv,2)
+            ov = oct(dv)
+            hv = hex(dv)
+            print("\tBinary Number System Value=", bv)
+            print("\tDeciaml Number System Value=", dv)
+            print("\tOctal Number System Value=", ov)
+            print("\tHexa Decimal Number System Value=", hv)
+        case 3:
+            ov = input("Enter the Octal Number System Data preceded with 0o OR 0O:")
+            dv = int(ov, 8)
+            bv = bin(dv)
+            hv = hex(dv)
+            print("\tOctal Number System Value=", ov)
+            print("\tDeciaml Number System Value=", dv)
+            print("\tBinary Number System Value=", bv)
+            print("\tHexa Decimal Number System Value=", hv)
+        case 4:
+            hv = input("Enter the Hexa Number System Data preceded with 0x OR 0X:")
+            dv=int(hv,16)
+            bv=bin(dv)
+            ov=oct(dv)
+            print("\tHexa Decimal Number System Value=", hv)
+            print("\tDeciaml Number System Value=", dv)
+            print("\tBinary Number System Value=", bv)
+            print("\tOctal Number System Value=", ov)
+        case 5:
+            print("Thx for Using Project")
+            break
+        case _:
+            print("UR Selection of Operation is wrong-try again")
+
+
+
+
+
+
+#NumberToRoman.py
+n=int(input("Enter Integer value to Convert into Eqv Roman:"))
+if(n<=0):
+    print("{} is Invalid Input".format(n))
+else:
+    while(n>=1000):
+        print("M",end="")
+        n=n-1000
+    if (n >= 900):
+        print("CM", end="")
+        n = n - 900
+    if (n >= 500):
+        print("D", end="")
+        n = n - 500
+    if (n >= 400):
+        print("CD", end="")
+        n = n - 400
+    while (n >= 100):
+        print("C", end="")
+        n = n - 100
+    if (n >= 90):
+        print("XC", end="")
+        n = n - 90
+    if (n >= 50):
+        print("L", end="")
+        n = n - 50
+    if (n >= 40):
+        print("XL", end="")
+        n = n - 40
+    while(n >= 10):
+        print("X", end="")
+        n = n - 10
+    if (n >= 9):
+        print("IX", end="")
+        n = n - 9
+    if (n >= 5):
+        print("V", end="")
+        n = n - 5
+    if (n >= 4):
+        print("IV", end="")
+        n = n - 4
+    while (n >= 1):
+        print("I", end="")
+        n = n - 1
+    print()
+
+
+
+#ProgrammerChoiceValueConvert.py
+pv=input("Enter Ur Value of Number System:")
+if(pv.startswith("0b") or pv.startswith("0B")):
+    print("Binary Value:{}".format(pv))
+    print("\tDec({})={}".format(pv,int(pv,2)))
+    print("\tOct({})={}".format(pv, oct(int(pv, 2))))
+    print("\tHex({})={}".format(pv, hex(int(pv, 2))))
+elif(pv.startswith("0o") or pv.startswith("0O")):
+    print("Octal Value:{}".format(pv))
+    print("\tDec({})={}".format(pv, int(pv, 8)))
+    print("\tBin({})={}".format(pv, bin(int(pv, 8))))
+    print("\tHex({})={}".format(pv, hex(int(pv, 8))))
+elif(pv.startswith("0x") or pv.startswith("0X")):
+    print("Hexa Decimal Value:{}".format(pv))
+    print("\tDec({})={}".format(pv, int(pv, 16)))
+    print("\tBin({})={}".format(pv, bin(int(pv, 16))))
+    print("\tOct({})={}".format(pv, oct(int(pv, 16))))
+elif( not pv.startswith("0")):
+    print("Decimal Value:{}".format(pv))
+    print("\tBin({})={}".format(pv, bin(int(pv))))
+    print("\tOct({})={}".format(pv, oct(int(pv))))
+    print("\tHex({})={}".format(pv, hex(int(pv))))
+else:
+    print("{} is Invalid Decimal Value".format(pv))

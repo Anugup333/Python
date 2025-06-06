@@ -1,0 +1,43 @@
+				======================================================
+						Getting Started with PYTHON Programming
+				======================================================
+Index
+-----------------------------
+=>History of Python
+=>Versions of Python
+=>DownLoading and Installing Python Software
+==========================================================================================
+						History of Python
+==========================================================================================
+=>The Python Programming Lang Concevived (Foundation stone Laid Down) in the Year 1980.
+=>The Python Programming Lang Implementation (Bring Action)  Started  in the Year 1989.
+=>The  Python Programming Lang Officially Released in the Year  1991 Feb 20.
+=>The Python Programming Lang Developed by GUIDO VAN ROSSUM (Father OR Author of PYTHON)
+=>The Python Programming Lang Developed at Centrum Wiskunde Informatica (CWI) Institute in Nether Lands.
+=>The Python Programming Lang Maintained and Managed by a Non-Commercial Organization called Python Software 
+    Foundation (PSF).
+=>The ABC Programming Lang is the Predecessor of Python Programming Lang.
+=>The official Website of  Python Software Foundation is www.python.org 
+==========================================================================================
+					Versions of Python
+==========================================================================================
+=>The Python Programming Language contains 3 Types of Versions. They are
+
+		1.  Python 1.x  , Here 1 is called Major Version and x Represents 0 1 2 3 4 5 6 7..etc
+												they are called Minor Versions
+			As on today Python 1.x Oudated
+		2. Python 2.x , Here 2 is called Major Version and x Represents 0 1 2 3 4 5 6 7 
+												they are called Minor Versions
+			As on today Python 2.x outdated 2020-01-01
+		3. Python 3.x, Here 3 is called Major Version and x Represents 0  1   2 3 4 5 6 7 8 9 10, 11 12, 13, 14.
+											they are called Minor Versions
+										0 1 2 3 4 5 6 7 8 Are called OLDER VERSION
+										9 10 11 12----OLDER VERSION BUT STILL CONTINUED 
+										13---------------Latest Version---2024-10-07
+										14---------------future OR Preview Version---2025-10-01
+==========================================================================================
+					DownLoading and Installing Python Software
+==========================================================================================
+=>Goto www.python.org
+=>Choose the DownLoads---click Python 3.13.1
+==========================================================================================

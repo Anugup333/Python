@@ -1,0 +1,378 @@
+#Program for Demonstrating the need of Class Level Data Members
+#ClassLevelDataMemberEx1.py
+class Employee:
+    compname="IBM"
+    city="HYD" # Here compname,city are called Class Level Data Members
+
+#Main Program
+#Here are accessing the Class Level Data Members by using Class Name
+print("Employee Comp Name=",Employee.compname)
+print("Employee Comp City=",Employee.city)
+
+
+#Program for Demonstrating the need of Class Level Data Members
+#ClassLevelDataMemberEx2.py
+class Employee:
+    compname="IBM"
+    city="HYD" # Here compname,city are called Class Level Data Members
+
+#Main Program
+#Here are accessing the Class Level Data Members by using Objects of Employee
+eo1=Employee() # Object Created
+print("Employee Comp Name=",eo1.compname)
+print("Employee Comp City=",eo1.city)
+print("---------------------------")
+#Here are accessing the Class Level Data Members by using Objects of Employee
+eo2=Employee() # Object Created
+print("Employee Comp Name=",eo1.compname)
+print("Employee Comp City=",eo1.city)
+print("---------------------------")
+
+
+#Program for Demonstrating the need of Class Level Data Members
+#ClassLevelDataMemberEx3.py
+class Employee:pass
+
+#Main Program
+#Define Class Level Data Members in Main Program
+Employee.compname="IBM"
+Employee.city="HYD"  # Here compname and city are called Class Level Data Memebrs
+#Here are accessing the Class Level Data Members by using Class Name
+print("Employee Comp Name=",Employee.compname)
+print("Employee Comp City=",Employee.city)
+
+
+#Program for Demonstrating the need of Class Level Data Members
+#ClassLevelDataMemberEx4.py
+class Employee:pass
+
+#Main Program
+#Define Class Level Data Members in Main Program
+Employee.compname="IBM"
+Employee.city="HYD"  # Here compname and city are called Class Level Data Memebrs
+#Here are accessing the Class Level Data Members by using Object Name
+eo1=Employee()
+print("content of eo1=",eo1.__dict__)
+print("Employee Comp Name=",eo1.compname)
+print("Employee Comp City=",eo1.city)
+
+
+#Program for Storing Student Number,Name and Marks and Course
+# for all Students  by using Classes and Objects
+#InstanceClassLevelDataMembersEx1.py
+class Student:
+    crs="PYTHON" # Here crs is called Class Level Data Member
+
+#main Program
+s1=Student() # Creating an Object of Student Class
+s2=Student() # Creating an Object of Student Class
+#Place OR Store  Student Number,Name and Marks in s1 object--Instance Data members through an object
+s1.sno=100
+s1.name="Rossum"
+s1.marks=45.67
+#Place OR Store  Student Number,Name and Marks in s2 object--Instance Data members through an object
+s2.stno=200
+s2.sname="Travis"
+s2.marks=55.55
+#Dsiplay the Object s1 Data
+print("----------------------------------")
+print(s1.__dict__)
+print("First Student Data")
+print("----------------------------------")
+print("\tStudent Number={}".format(s1.sno))
+print("\tStudent Name={}".format(s1.name))
+print("\tStudent Marks={}".format(s1.marks))
+print("\tStudent Course={}".format(Student.crs))
+print("----------------------------------")
+print(s2.__dict__)
+print("Second Student Data")
+print("----------------------------------")
+print("\tStudent Number={}".format(s2.stno))
+print("\tStudent Name={}".format(s2.sname))
+print("\tStudent Marks={}".format(s2.marks))
+print("\tStudent Course={}".format(Student.crs))
+print("----------------------------------")
+
+
+#Program for Storing Student Number,Name and Marks and Course
+# for all Students  by using Classes and Objects
+#InstanceClassLevelDataMembersEx1.py
+class Student:
+    crs="PYTHON" # Here crs is called Class Level Data Member
+
+#main Program
+#Define Class Level Data Member
+Student.city="HYD"
+#-------------------------------------------
+s1=Student() # Creating an Object of Student Class
+s2=Student() # Creating an Object of Student Class
+#Place OR Store  Student Number,Name and Marks in s1 object--Instance Data members through an object
+s1.sno=100
+s1.name="Rossum"
+s1.marks=45.67
+#Place OR Store  Student Number,Name and Marks in s2 object--Instance Data members through an object
+s2.stno=200
+s2.sname="Travis"
+s2.marks=55.55
+#Dsiplay the Object s1 Data
+print("----------------------------------")
+print(s1.__dict__)
+print("First Student Data")
+print("----------------------------------")
+print("\tStudent Number={}".format(s1.sno))
+print("\tStudent Name={}".format(s1.name))
+print("\tStudent Marks={}".format(s1.marks))
+print("\tStudent Course={}".format(s1.crs))
+print("\tStudent Living={}".format(s1.city))
+print("----------------------------------")
+print(s2.__dict__)
+print("Second Student Data")
+print("----------------------------------")
+print("\tStudent Number={}".format(s2.stno))
+print("\tStudent Name={}".format(s2.sname))
+print("\tStudent Marks={}".format(s2.marks))
+print("\tStudent Course={}".format(s2.crs))
+print("\tStudent Living={}".format(s2.city))
+print("----------------------------------")
+
+
+#Program for Storing Student Number,Name and Marks and Course for
+# all Students by using Classes and Objects
+#IInstanceClassLevelDataMembersEx1.py
+class Student:
+    crs="PYTHON"
+    city="HYD" # Here city and crs are called Class Level Data Members.
+
+#main Program
+s1=Student() # Creating an Object of Student Class
+s2=Student() # Creating an Object of Student Class
+print("------------------------------------")
+#Place OR Store  Student Number,Name and Marks in s1 object--Instance Data members through an object
+s1.sno=int(input("Enter First Student Number:"))
+s1.name=input("Enter First Student Name:")
+s1.marks=float(input("Enter First Student Marks:"))
+#Place OR Store  Student Number,Name and Marks in s2 object--Instance Data members through an object
+print("------------------------------------")
+s2.stno=int(input("Enter Second Student Number:"))
+s2.sname=input("Enter Second Student Name:")
+s2.marks=float(input("Enter Second Student Marks:"))
+#Dsiplay the Object s1 Data
+print("----------------------------------")
+print("First Student Data")
+print("----------------------------------")
+print("\tStudent Number={}".format(s1.sno))
+print("\tStudent Name={}".format(s1.name))
+print("\tStudent Marks={}".format(s1.marks))
+print("\tStudent Course={}".format(Student.crs))
+print("\tStudent City={}".format(Student.city))
+print("----------------------------------")
+print("Second Student Data")
+print("----------------------------------")
+print("\tStudent Number={}".format(s2.stno))
+print("\tStudent Name={}".format(s2.sname))
+print("\tStudent Marks={}".format(s2.marks))
+print("\tStudent Course={}".format(Student.crs))
+print("\tStudent City={}".format(Student.city))
+print("----------------------------------")
+
+
+#Program for Storing Student Number,Name and Marks by using Classes and Objects
+#InstanceDataMemberEx1.py
+class Student:pass
+
+#main Program
+s1=Student() # Creating an Object of Student Class
+s2=Student() # Creating an Object of Student Class
+print("ID of Object s1=",id(s1))
+print("ID of Object s2=",id(s2))
+#Place OR Store  Student Number,Name and Marks in s1 object--Instance Data members through an object
+s1.sno=100
+s1.name="Rossum"
+s1.marks=45.67
+#Place OR Store  Student Number,Name and Marks in s2 object--Instance Data members through an object
+s2.stno=200
+s2.sname="Travis"
+s2.marks=55.55
+#Dsiplay the Object s1 Data
+print("----------------------------------")
+print("First Student Data")
+print("----------------------------------")
+print("\tStudent Number={}".format(s1.sno))
+print("\tStudent Name={}".format(s1.name))
+print("\tStudent Marks={}".format(s1.marks))
+print("----------------------------------")
+print("Second Student Data")
+print("----------------------------------")
+print("\tStudent Number={}".format(s2.stno))
+print("\tStudent Name={}".format(s2.sname))
+print("\tStudent Marks={}".format(s2.marks))
+print("----------------------------------")
+
+#Program for Storing Student Number,Name and Marks by using Classes and Objects
+#InstanceDataMemberEx2.py
+class Student:pass
+
+#main Program
+s1=Student() # Creating an Object of Student Class
+s2=Student() # Creating an Object of Student Class
+print("------------------------------------")
+print("Content of s1 object=",s1.__dict__)
+print("Number of Values in s1 object=",len(s1.__dict__))
+print("ID of s1 object=",id(s1))
+print("------------------------------------")
+print("Content of s2 object=",s2.__dict__)
+print("Number of Values in s2 object=",len(s2.__dict__))
+print("ID of s2 object=",id(s2))
+print("------------------------------------")
+#Place OR Store  Student Number,Name and Marks in s1 object--Instance Data members through an object
+s1.sno=100
+s1.name="Rossum"
+s1.marks=45.67
+#Place OR Store  Student Number,Name and Marks in s2 object--Instance Data members through an object
+s2.stno=200
+s2.sname="Travis"
+s2.marks=55.55
+s2.colname="JNTU"
+print("------------------------------------")
+print("Content of s1 object=",s1.__dict__)
+print("Number of Values in s1 object=",len(s1.__dict__))
+print("ID of s1 object=",id(s1))
+print("------------------------------------")
+print("Content of s2 object=",s2.__dict__)
+print("Number of Values in s2 object=",len(s2.__dict__))
+print("ID of s2 object=",id(s2))
+print("------------------------------------")
+
+
+#Program for Storing Student Number,Name and Marks by using Classes and Objects
+#InstanceDataMemberEx3.py
+class Student:pass
+
+#main Program
+s1=Student() # Creating an Object of Student Class
+s2=Student() # Creating an Object of Student Class
+print("------------------------------------")
+print("Content of s1 object=",s1.__dict__)
+print("Number of Values in s1 object=",len(s1.__dict__))
+print("ID of s1 object=",id(s1))
+print("------------------------------------")
+print("Content of s2 object=",s2.__dict__)
+print("Number of Values in s2 object=",len(s2.__dict__))
+print("ID of s2 object=",id(s2))
+print("------------------------------------")
+#Place OR Store  Student Number,Name and Marks in s1 object--Instance Data members through an object
+s1.sno=100
+s1.name="Rossum"
+s1.marks=45.67
+#Place OR Store  Student Number,Name and Marks in s2 object--Instance Data members through an object
+s2.stno=200
+s2.sname="Travis"
+s2.marks=55.55
+s2.colname="JNTU"
+print("------------------------------------")
+print("Number of Values in s1 object=",len(s1.__dict__))
+print("ID of s1 object=",id(s1))
+for dmn,dmv in s1.__dict__.items():
+    print("\t{}--->{}".format(dmn,dmv))
+print("------------------------------------")
+print("Number of Values in s2 object=",len(s2.__dict__))
+print("ID of s2 object=",id(s2))
+for dmn,dmv in s2.__dict__.items():
+    print("\t{}--->{}".format(dmn,dmv))
+print("------------------------------------")
+
+
+#Program for Storing Student Number,Name and Marks by using Classes and Objects
+#InstanceDataMemberEx4.py
+class Student:pass
+
+#main Program
+s1=Student() # Creating an Object of Student Class
+s2=Student() # Creating an Object of Student Class
+print("------------------------------------")
+print("Content of s1 object=",s1.__dict__)
+print("Number of Values in s1 object=",len(s1.__dict__))
+print("ID of s1 object=",id(s1))
+print("------------------------------------")
+print("Content of s2 object=",s2.__dict__)
+print("Number of Values in s2 object=",len(s2.__dict__))
+print("ID of s2 object=",id(s2))
+print("------------------------------------")
+#Place OR Store  Student Number,Name and Marks in s1 object--Instance Data members through an object
+s1.sno=int(input("Enter First Student Number:"))
+s1.name=input("Enter First Student Name:")
+s1.marks=float(input("Enter First Student Marks:"))
+#Place OR Store  Student Number,Name and Marks in s2 object--Instance Data members through an object
+print("------------------------------------")
+s2.stno=int(input("Enter Second Student Number:"))
+s2.sname=input("Enter Second Student Name:")
+s2.marks=float(input("Enter Second Student Marks:"))
+s2.colname=input("Enter Second Student College Name:")
+print("------------------------------------")
+print("Number of Values in s1 object=",len(s1.__dict__))
+print("ID of s1 object=",id(s1))
+for dmn,dmv in s1.__dict__.items():
+    print("\t{}--->{}".format(dmn,dmv))
+print("------------------------------------")
+print("Number of Values in s2 object=",len(s2.__dict__))
+print("ID of s2 object=",id(s2))
+for dmn,dmv in s2.__dict__.items():
+    print("\t{}--->{}".format(dmn,dmv))
+print("------------------------------------")
+
+
+#Program for Storing Student Number,Name and Marks by using Classes and Objects
+#InstanceDataMemberEx5.py
+class Student:pass
+
+#main Program
+s1=Student() # Creating an Object of Student Class
+s2=Student() # Creating an Object of Student Class
+print("------------------------------------")
+print("Content of s1 object=",s1.__dict__)
+print("Number of Values in s1 object=",len(s1.__dict__))
+print("ID of s1 object=",id(s1))
+print("------------------------------------")
+print("Content of s2 object=",s2.__dict__)
+print("Number of Values in s2 object=",len(s2.__dict__))
+print("ID of s2 object=",id(s2))
+print("------------------------------------")
+#Place OR Store  Student Number,Name and Marks in s1 object--Instance Data members through an object
+s1.sno=int(input("Enter First Student Number:"))
+s1.name=input("Enter First Student Name:")
+s1.marks=float(input("Enter First Student Marks:"))
+#Place OR Store  Student Number,Name and Marks in s2 object--Instance Data members through an object
+print("------------------------------------")
+s2.stno=int(input("Enter Second Student Number:"))
+s2.sname=input("Enter Second Student Name:")
+s2.marks=float(input("Enter Second Student Marks:"))
+s2.colname=input("Enter Second Student College Name:")
+#Dsiplay the Object s1 Data
+print("----------------------------------")
+print("First Student Data")
+print("----------------------------------")
+print("\tStudent Number={}".format(s1.sno))
+print("\tStudent Name={}".format(s1.name))
+print("\tStudent Marks={}".format(s1.marks))
+print("----------------------------------")
+print("Second Student Data")
+print("----------------------------------")
+print("\tStudent Number={}".format(s2.stno))
+print("\tStudent Name={}".format(s2.sname))
+print("\tStudent Marks={}".format(s2.marks))
+print("\tStudent College Name={}".format(s2.colname))
+print("----------------------------------")
+
+
+#Program for adding Two Numbers by using Classes and Objects
+class Sum:pass
+
+#Main Program
+so=Sum() # Object Creation
+#read Two values in object so---
+so.a=float(input("Enter First Value:"))
+so.b=float(input("Enter Second Value:"))
+#add the Values of Object so
+so.c=so.a+so.b
+print("Sum({},{})={}".format(so.a,so.b,so.c))
+

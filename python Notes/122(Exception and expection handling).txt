@@ -1,0 +1,23 @@
+			======================================================
+					Building Points in Exception Handling
+			======================================================
+1. When the Application User Enters Wrong OR Invalid Input then we get Runtime Error.
+				( Invalid Input------->Runtime Error)
+2. All Runtime Errors by default gives Technical Error Messages.
+		(Invalid Input------>Runtime Error-------->Technical Error Messages)
+3. Definition of Exception : Every Runtime Error is called Exception
+					(Invalid Input------>Runtime Error-------->Exception)
+			All invalid Inputs are considered as Exceptions
+4. All Exceptions by default gives Technical Error Messages.			
+5. Definition of Exception Handling:- The Process of Converting Technical Error Messages into User-Friendly 
+							      Error Messages is called Exception Handling.
+
+6. When the exception occurs in Python Program. The following Steps Takes Place Internally.
+			i)   Program Execution  Abnormally Terminated
+			ii)  PVM Comes out-off Program flow 
+			iii) PVM by default generates Technical Error Message.
+
+7. To do the above Step-(i),Step-(ii) and Step-(iii), PVM CREATES AN OBJECT w.r.t An EXCEPTION CLASS.
+8. When an Exception occurs in Python Program then PVM creates an Object of appropriate EXCEPTION CLASS
+9. Hence All Exceptions are Considered as objects of EXCEPTION CLASSES.
+====================================x=======================================================

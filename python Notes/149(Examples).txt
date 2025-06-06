@@ -1,0 +1,59 @@
+#Program for Saving Dict Data into JSON File
+#DictObjectDataToJsonFile.py
+import json
+DictData={'ENO': 100, 'ENAME': 'Rossum', 'SAL': 4.5, 'DSG': 'Author'}
+print("------------------------------------------------------------------------")
+print("Dict Data=",DictData)
+print("Type of DictData=",type(DictData))
+print("------------------------------------------------------------------------")
+with open("E:\\KVR-PYTHON-6PM\\JSON\\NOTES\\emp.json","w") as fp:
+	json.dump(DictData,fp)
+	print("Dict Object Data Saved in Json File--Verify")
+print("------------------------------------------------------------------------")
+
+
+#Program for Converting Dict Object Data into JSON Str Data
+#DictObjectToJsonData.py
+DictData={'ENO': 100, 'ENAME': 'Rossum', 'SAL': 4.5, 'DSG': 'Author'}
+print("------------------------------------------------------------------------")
+print("Dict Data=",DictData)
+print("Type of DictData=",type(DictData))
+print("------------------------------------------------------------------------")
+jsonstrdata=str(DictData)
+print("Json Str Data=",jsonstrdata)
+print("Type of jsonstrdata=",type(jsonstrdata))
+print("------------------------------------------------------------------------")
+
+
+#Program for   Loading / Reading JSON File Data into Dict Object Data .
+#JsonFileToDictObject.py
+import json
+try:
+	with open("E:\\KVR-PYTHON-6PM\\JSON\\NOTES\\emp.json","r") as fp:
+		DictData=json.load(fp)
+		print("Dict Data=",DictData)
+		print("Type of DictData=",type(DictData))
+		print("------------------------------------------------------------------------")
+		for key,value in DictData.items():
+			print("\t{}---->{}".format(key,value))
+		print("------------------------------------------------------------------------")
+except FileNotFoundError:
+	print("Json File Does not Exist")
+
+
+#Program for Converting JSON String Data into Dict Object---json.loads()
+#JsonStrDataToDictData.py
+import json
+jsonstrdata=' {"ENO":"100","ENAME":"Rossum","SAL":"4.5","DSG":"Author"}'
+print("Json Str Data=",jsonstrdata)
+print("Type of jsonstrdata=",type(jsonstrdata))
+print("------------------------------------------------------------------------")
+DictData=json.loads(jsonstrdata)
+print("Dict Data=",DictData)
+print("Type of DictData=",type(DictData))
+print("------------------------------------------------------------------------")
+for key,value in DictData.items():
+	print("\t{}---->{}".format(key,value))
+print("------------------------------------------------------------------------")
+
+

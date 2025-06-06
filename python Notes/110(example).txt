@@ -1,0 +1,112 @@
+#Program for Reading the Values from Keyboard
+#ListCompEx1.py
+print("Enter List of Values:")
+lst=[float(val) for val in input().split()] # s=10 20 30 40 50 60 70
+print("Content of List=",lst)
+print("Type of Lst=",type(lst))
+
+#Program for Reading the Values from Keyboard
+#ListCompEx2.py
+print("Enter List of Values Separated by Comma:")
+lst=[float(val) for val in input().split(",")] # s=10 20 30 40 50 60 70
+print("Content of List=",lst)
+print("Type of Lst=",type(lst))
+
+
+#ListCompEx3.py
+print("Enter List of Values Separated by Comma:")
+posvals=[ float(val)    for val in input().split(",")  if float(val)>0 ]
+print("Possitive Values=",posvals)
+
+
+#ListCompEx4.py
+m=3
+n=3
+lst=[(i,j) for i in range(m)  for j in range(n)]
+for x in lst:
+    print(x)
+print("--------------------------------------------")
+m=2
+n=2
+lst=[[i,j] for i in range(m)  for j in range(n)]
+for x in lst:
+    print(x)
+
+print("--------------------------------------------")
+
+
+#Program for Reading the Values from Keyboard
+#SetCompEx1.py
+print("Enter List of Values Separated by Comma:")
+st1={float(val) for val in input().split(",")} # s=10 20 30 40 50 60 70
+print("Content of Set=",st1)
+print("Type of st1=",type(st1))
+
+
+#Program for Reading the Values from Keyboard
+#TupleCompEx1.py
+print("Enter List of Values:")
+x=(float(val) for val in input().split()) # s=10 20 30 40 50 60 70
+print("Type of x=",type(x)) # here x is of type  <class 'generator'>
+#Convert generator object into tuple
+tpl=tuple(x)
+print("Content of tuple=",tpl)
+print("Type of tpl=",type(tpl))
+
+
+#DictCompEx1.py
+print("Enter List of Values:")
+dictobj={float(val):float(val)**2  for val in input().split()}
+print("Content of Dict")
+for key,val in dictobj.items():
+    print("\t{}--->{}".format(key,val))
+
+print("Type of dictobj=",type(dictobj))
+
+
+#DictCompEx2.py
+nowds=int(input("Enter How Many Week Days:"))
+wd={}
+for i in range(1,nowds+1):
+    wkd=input("Enter {} Week Day Name:".format(i))
+    wd[i]=wkd
+else:
+    print(wd)
+
+
+
+#DictCompEx3.py
+wds=[wkn for wkn in input("Enter Week Names separated Comma:").split(",")]
+wkn={i+1:wds[i] for i in range(0,len(wds))}
+print(wkn)
+
+
+#DictCompEx5.py
+def getwordslengths():
+    print("Enter List of Words Separated by Comma")
+    wordslength={word:len(word) for word in input().split(",")}
+    for word,length in wordslength.items():
+        print('\t{}---{}'.format(word,length))
+
+#Main Program
+getwordslengths()
+
+
+#DictCompEx6.py
+def getwordslengths():
+    print("Enter List of Words Separated by Comma")
+    wordslength={word:len(word) for word in input().split(",")}
+    return wordslength
+
+def findmaxlengthword(wordswithlength):
+    print("Max Length Word(s)")
+    #Get Max Length Values from Dict Values
+    maxlen=max(wordswithlength.values())
+    for word,wl in wordswithlength.items():
+        if(wl==maxlen):
+            print(word)
+
+#Main Program
+wordswithlength=getwordslengths()
+findmaxlengthword(wordswithlength)
+

@@ -1,0 +1,117 @@
+			=============================================
+					Constructors in Python
+			=============================================
+=>The purpose of Constructors in python is that " To initlize the object".
+=>Initlizing the object is nothing but Placing our own data in object without leaving object empty.
+---------------------------------------
+Definition of Constructor
+---------------------------------------
+=>A Constructor is one of the special method which is automatically /  Implicitly called by PVM During Object  Creation and whose purpose is to initlize the object without leaving the object empty.
+-----------------------------------------------------------------
+Syntax for defining Constructor:
+-----------------------------------------------------------------
+	def    __init__(self, list of formal params if any):
+	         --------------------------------------------
+		 Block of Statements-- Performs Initlization
+		 --------------------------------------------
+-----------------------------------------------------------------
+Rules or Properties of Constructors
+-----------------------------------------------------------------
+1. The Name of the constructor is always    def   __init__(self,...........)
+2. Constructors will  be called by PVM   automatically / implciitly during object creation
+3. Constructors will not return any value except None.
+4. In Python, Constructors can participate in Inheritance Process. 
+5. In Python, Constructors can be Overridden .
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+			               =============================================
+					      Types of Constructors in Python
+			               =============================================
+=>In Python Programming, we have  two types of Constructors. they are
+			1. Default or Parameter Less Constructor
+			2. Parameterized Constructor
+-----------------------------------------------------------------------------------------------------------------------------------------
+1. Default or Parameter Less Constructor
+-----------------------------------------------------------------------------------------------------------------------------------------
+=>A  Default or Parameter Less Constructor is one, which never takes any Formal Parameters except self.
+=>The purpose of  Default or Parameter Less Constructor is that " To Initlize Multiple objects of same class with Same Values".
+=>Syntax:    def   __init__(self):
+                          ---------------------------
+			  Block of statements---Performs Initlization Process
+			  ---------------------------
+Example:
+#program for demonstrating Default Constructor
+#DefaultConstEx1.py
+class Test:
+	def __init__(self):
+		print("i am from default constructor:")
+		self.a=10
+		self.b=20
+		print("\ta={}\tb={}".format(self.a,self.b))
+
+#main program
+t1=Test()# Object creation calls default constructor
+t2=Test()# Object creation calls default constructor
+t3=Test()# Object creation calls default constructor
+-----------------------------------------------------------------------------------------------------------------------------------------
+2. Parameterized Constructor
+-----------------------------------------------------------------------------------------------------------------------------------------
+=>A   Parameterized Constructor is one, which always takes Formal Parameters after self.
+=>The purpose of   Parameterized Constructor is that " To Initlize Multiple objects of same 
+    class with Different Values".
+=>Syntax:    def   __init__(self,list of formal params):
+                          ---------------------------
+			  Block of statements-----Performs Initlization Process
+			  ---------------------------
+Examples:
+-----------------
+#program for demonstrating Parametrized Constructor
+#ParamConstEx1.py
+class Test:
+	def __init__(self,k,v):
+		print("i am from Parametrized constructor:")
+		self.a=k
+		self.b=v
+		print("\ta={}\tb={}".format(self.a,self.b))
+
+#main program
+t1=Test(10,20)# Object creation calls Parametrized Constructor
+t2=Test(100,200)# Object creation calls Parametrized Constructor
+t3=Test(1000,2000)# Object creation calls Parametrized Constructor
+-----------------------------------------------------------------------------------------------------------------------------------------
+Most Imp Point:
+-----------------------------
+Note: In Class of Python, we can't define both default and Parameterized constructors bcoz PVM can remember only latest constructor (due to its interpretation Process) . To full fill the need of both default and parameterized constructors , we define single constructor with default parameter mechanism.
+
+#program for demonstrating Parametrized and DefaultConstructor
+#ParamDefualtConstEx1.py
+class Test:
+	def __init__(self,k=1,v=2): # default and parameterized
+		print("i am from default / Parametrized constructor:")
+		self.a=k
+		self.b=v
+		print("\ta={}\tb={}".format(self.a,self.b))
+
+#main program
+t1=Test()# Object creation calls default Constructor
+t2=Test(10,20)# Object creation calls Parametrized Constructor
+=======================================================================================
+
+			======================================================================
+					Differences Between Methods and Constructors
+			=====================================================================
+--------------------------------------------------------------------
+Methods
+--------------------------------------------------------------------
+=>The Purpose of Methods is that "To Perform an Operation and provides Code Re-usability"			
+=>The Method Definition Must Be called Explicitly through Method Call.
+=>The Method Defintion May OR May Not contain return statement OR A Method can return a Value.
+=>The Method Name can be any valid Varname.
+--------------------------------------------------------------------
+Constructors
+--------------------------------------------------------------------
+=>The purpose of Constructors in python is that " To initlize the object".			
+=>Constructors will  be called by PVM   automatically / implciitly during object creation.
+=>The Constructors Shoud Not Return Any Value (can return None).
+=>The Constructor Name is always    def __init__(self, List of Formal Params):pass
+================================================x===================================

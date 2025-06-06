@@ -1,0 +1,1 @@
+photo = PhotoImage(file = "Intro_Of_tkinter.png")
