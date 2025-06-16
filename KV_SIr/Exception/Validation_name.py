@@ -8,7 +8,7 @@ def validate(name):
     else:
         words = name.split()
         if len(words) == 0:
-            raise ZeroDivisionError
+            raise ZeroLengthError
         else:
             temp = True
             for word in words:

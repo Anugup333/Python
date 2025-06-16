@@ -12,3 +12,4 @@ else:
         print("="*50)
         print(f"List is Elements in Ascending Order : {lst}")
         print(f"List is Elements in Descending Order : {lst[::-1]}")
+        

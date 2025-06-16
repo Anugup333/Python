@@ -1,9 +1,0 @@
-		==================================================
-		Supports Third Party Modules Such as numpy, pandas, scipy, scikit, keras, 
-			             matplotlib, nlp..etc
-		==================================================
-
-=>Most of the Time Python Programming  Supports Third Party Modules Such as numpy, pandas, scipy, 
-  scikit, keras,  matplotlib, nlp..etc are providing Easiness to Python programmer in the case of 
-  Complex Maths Calculations(Numpy), Businness Analysis and Analytics (Pandas)...............etc
-
