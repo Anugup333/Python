@@ -13,13 +13,14 @@ def decorator_func(func):
 def show():
     print("Show Worked")
 decorator_show = decorator_func(show)
-decorator_show()
+
+# decorator_show()
 
 @decorator_func
 def anuj():
     return f"hello Anuj"
 
-print(anuj())
+# print(anuj())
 
 
 print("\n------- Example 2 -------")
@@ -40,7 +41,7 @@ def addition():
     result = num1 + num2
     return result
 
-print("Addition : ", addition())
+# print("Addition : ", addition())
 
 print(''' --------- Decorators with arguments --------- ''')
 
@@ -59,7 +60,7 @@ def multiplication(a,b):
     result = a * b
     return result
 
-print("Multiplication : ", multiplication(10,20))
+# print("Multiplication : ", multiplication(10,20))
 
 
 print(''' --------- Class Decorators  --------- ''')
@@ -91,7 +92,27 @@ class Name:
         return self.first * self.second
     
 obj = Name(10,20)
-print("Addition: ",obj.addition())
-print("Multiplication: ",obj.multiplication())
-print("Division: ",obj.divide())
-print(obj.display())
+# print("Addition: ",obj.addition())
+# print("Multiplication: ",obj.multiplication())
+# print("Division: ",obj.divide())
+# print(obj.display())
+
+
+print(''' --------- Class Decorators  --------- ''')
+
+class Calculator:
+    def __init__(self,func):
+        self.function = func
+    
+    def __call__(self,*args, **kwargs):
+        result = self.function(*args, **kwargs)
+        return result**2
+    
+@Calculator
+def add(a,b):
+    return a + b
+
+# add = Calculator(add)
+
+print(add(10,20))  # add.__call__(a,b)  since function ty[pe is callable 
+
